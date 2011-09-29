@@ -1,0 +1,919 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+<style>
+body{
+	background:url(SteelBg7.jpg) no-repeat center top;
+	background-repeat:no-repeat;
+	margin:0;
+	padding:0;
+	
+	background-size: 100%;
+	
+	color:white;
+}
+#bg{
+	width:70%;
+    position:relative; z-index:-100;	
+    margin:0;
+	padding:0;
+	
+	
+}
+
+#content{
+	position:relative;
+	margin-left: 5px;	/*padding-top:60px;*/
+	
+}
+#whole{
+	margin-top:5%;
+	margin-left:60%;
+	border: 5px;
+	border-style:solid;
+	border-color:#666;
+	background-color: #999;
+	width:300px;
+	}
+
+#form1{
+	 position:relative;
+	
+	 width:250px;
+	 
+	 background-color: #999;
+	
+	 
+	}
+#form2{
+	position:relative;
+	 width:280px;
+	 
+	 background-color: #000;
+	 margin-top:0%;
+	
+	}
+	#form3{
+		/*float:right;*/
+	 width:250px;
+	  position:relative;
+	 background-color: #999
+	
+	/* margin-left:60%;*/
+	}
+
+</style>
+<script language="javascript">
+function show_hide(divID){
+var divArea = document.getElementById(divID)
+var divAreaImg = document.getElementById(divID+"_img")
+var divAreaVisible = divArea.style.display != "none"
+
+if(divAreaVisible){
+divArea.style.display = "none"
+divAreaImg.innerHTML = "<img src='/EN/Script/plus.jpg' border='0'>"
+}else{
+divArea.style.display = ""
+divAreaImg.innerHTML = "<img src='/EN/Script/minus.jpg' border='0'>"
+}
+}
+
+function show_hide_text(divID){
+var divArea = document.getElementById(divID)
+var divAreaImg = document.getElementById(divID+"_img")
+var divAreaVisible = divArea.style.display != "none"
+
+if(divAreaVisible){
+divArea.style.display = "none"
+divAreaImg.innerHTML = "+"
+}else{
+divArea.style.display = ""
+divAreaImg.innerHTML = "−"
+//ADDED TO CLOSE ANY EXPANDED SECTIONS
+close_others(divID)
+}
+
+}
+
+function close_others(divID){
+var span_tags = document.getElementsByTagName("span")
+for(i=0;i<span_tags.length;i++){
+//alert(span_tags[i].getAttribute('id')+" "+divID)
+if(span_tags[i].getAttribute('id') != divID){
+if(span_tags[i].getAttribute('id').indexOf('_img') == -1){
+span_tags[i].style.display = 'none'
+document.getElementById(span_tags[i].getAttribute('id')+"_img").innerHTML = "+"
+}
+}
+}
+}
+</script>
+
+</head>
+
+<body>
+<div id="whole">
+<div id="content">
+<form action="process.php" method="post">
+<div id="form1" >
+    <div >First Name:</div>
+    <div>
+      <input name="FirstName" type="text" maxlength="30" size="30" id="FirstName" />
+      <span id="FirstName" style="color:Red;display:none;">Please enter your name.</span></div>
+    <div >Last Name:</div>
+    <div >
+      <input name="LastName" type="text" maxlength="30" size="30" id="LastName" />
+    </div>
+    <div >Street Address:</div>
+    <div >
+      <input name="Address1" type="text" maxlength="50" size="30" id="Address1" />
+      <span id="Address1" style="color:Red;display:none;">Please list your street address.</span> <br />
+      <input name="Address2" type="text" maxlength="50" size="30" id="Address2" />
+    </div>
+    <div >City:</div>
+    <div >
+      <input name="City" type="text" maxlength="50" size="30" id="City" />
+      <span id="City" style="color:Red;display:none;">Pleas enter a city name.</span></div>
+    <div >State:</div>
+    <div ></div>
+    <div >Zip Code:</div>
+    <div >
+      <input name="Zip" type="text" maxlength="50" size="30" id="Zip" />
+    </div>
+    <div >Country:</div>
+    <div >
+      <select name="Countries" id="Countries">
+        <option value="US">United States</option>
+        <option value="CA">Canada</option>
+        <option value="AF">Afghanistan</option>
+        <option value="AL">Albania</option>
+        <option value="DZ">Algeria</option>
+        <option value="AD">Andorra</option>
+        <option value="AO">Angola</option>
+        <option value="AI">Argentina</option>
+        <option value="AQ">Antartica</option>
+        <option value="AG">Antigua and Barbuda</option>
+        <option value="AR">Argentina</option>
+        <option value="AM">Armenia</option>
+        <option value="AW">Aruba</option>
+        <option value="AU">Australia</option>
+        <option value="AT">Austria</option>
+        <option value="AZ">Azerbaijan</option>
+        <option value="BS">Bahamas</option>
+        <option value="BH">Bharain</option>
+        <option value="BD">Bangladesh</option>
+        <option value="BB">Barbados</option>
+        <option value="BY">Belarus</option>
+        <option value="BE">Belgium</option>
+        <option value="BZ">Belize</option>
+        <option value="BJ">Benin</option>
+        <option value="BM">Bermuda</option>
+        <option value="BT">Bhutan</option>
+        <option value="BO">Bolivia</option>
+        <option value="BA">Bosnia and Herzegowina</option>
+        <option value="BW">Botswana</option>
+        <option value="BV">Bouvet Island</option>
+        <option value="BR">Brazil</option>
+        <option value="IO">British Indian Ocean Territory</option>
+        <option value="VG">British Virgin Islands</option>
+        <option value="BN">Brunei Darussalam</option>
+        <option value="BG">Bulgaria</option>
+        <option value="BF">Burkina Faso</option>
+        <option value="BI">Burundi</option>
+        <option value="KH">Cambodia</option>
+        <option value="CM">Cameroon</option>
+        <option value="CA">Canada</option>
+        <option value="CV">Cape Verde</option>
+        <option value="KY">Cayman Islands</option>
+        <option value="CF">Central African Republic</option>
+        <option value="TD">Chad</option>
+        <option value="CL">Chile</option>
+        <option value="CX">Christmas Island</option>
+        <option value="CC">Cocos (Keeling) Islands</option>
+        <option value="CO">Colombia</option>
+        <option value="KM">Comoros</option>
+        <option value="CG">Congo</option>
+        <option value="CK">Cook Islands</option>
+        <option value="CR">Costa Rica</option>
+        <option value="CI">Cote d&#39;Ivoire</option>
+        <option value="HR">Croatia</option>
+        <option value="CU">Cuba</option>
+        <option value="CY">Cyprus</option>
+        <option value="CZ">Czech Republic</option>
+        <option value="DK">Denmark</option>
+        <option value="DJ">Djibouti</option>
+        <option value="DM">Dominica</option>
+        <option value="DO">Dominican Republic</option>
+        <option value="TP">East Timor</option>
+        <option value="EC">Ecuador</option>
+        <option value="EG">Egypt</option>
+        <option value="SV">El Salvador</option>
+        <option value="GQ">Equatorial Guinea</option>
+        <option value="ER">Eritrea</option>
+        <option value="EE">Estonia</option>
+        <option value="ET">Ethiopia</option>
+        <option value="FK">Falkland Islands</option>
+        <option value="FO">Faroe Islands</option>
+        <option value="FJ">Fiji</option>
+        <option value="FI">Finland</option>
+        <option value="FR">France</option>
+        <option value="GF">French Guiana</option>
+        <option value="PF">French Polynesia</option>
+        <option value="GA">Gabon</option>
+        <option value="GM">Gambia</option>
+        <option value="GE">Georgia</option>
+        <option value="DE">Germany</option>
+        <option value="GI">Gibraltar</option>
+        <option value="GR">Greece</option>
+        <option value="GL">Greenland</option>
+        <option value="GD">Grenada</option>
+        <option value="VC">Grenadines</option>
+        <option value="GP">Guadelope</option>
+        <option value="GU">Guam</option>
+        <option value="GT">Guatemala</option>
+        <option value="GN">Guinea</option>
+        <option value="GW">Guinea-Bissau</option>
+        <option value="GY">Guyana</option>
+        <option value="HT">Haiti</option>
+        <option value="HM">Heard and McDonald Islands</option>
+        <option value="HN">Honduras</option>
+        <option value="HK">Hong Kong</option>
+        <option value="HU">Hungary</option>
+        <option value="IS">Iceland</option>
+        <option value="IN">India</option>
+        <option value="ID">Indonesia</option>
+        <option value="IR">Iran</option>
+        <option value="IQ">Iraq</option>
+        <option value="IE">Ireland</option>
+        <option value="IL">Israel</option>
+        <option value="IT">Italy</option>
+        <option value="JM">Jamaica</option>
+        <option value="JP">Japan</option>
+        <option value="JO">Jordan</option>
+        <option value="KZ">Kazakhstan</option>
+        <option value="KE">Kenya</option>
+        <option value="KI">Kiribati</option>
+        <option value="KP">Korea, People&#39;s Republic</option>
+        <option value="KR">Korea, ROK</option>
+        <option value="KW">Kuwait</option>
+        <option value="KG">Kyrgyzstan</option>
+        <option value="LA">Lao Democratic Republic</option>
+        <option value="LV">Latvia</option>
+        <option value="LB">Lebanon</option>
+        <option value="LS">Lesotho</option>
+        <option value="LR">Liberia</option>
+        <option value="LY">Libyan Arab Jamahiriyah</option>
+        <option value="LI">Liechtenstein</option>
+        <option value="LT">Lithuania</option>
+        <option value="LU">Luxembourg</option>
+        <option value="MO">Macau</option>
+        <option value="MK">Macedonia</option>
+        <option value="MG">Madagaskar</option>
+        <option value="MW">Malawi</option>
+        <option value="MY">Malaysia</option>
+        <option value="MV">Maldives</option>
+        <option value="ML">Mali</option>
+        <option value="MT">Malta</option>
+        <option value="MH">Marshall Islands</option>
+        <option value="MQ">Martinique</option>
+        <option value="MR">Mauritania</option>
+        <option value="MU">Mauritius</option>
+        <option value="YT">Mayotte</option>
+        <option value="MX">Mexico</option>
+        <option value="FM">Micronesia</option>
+        <option value="MD">Moldova, Rep. of</option>
+        <option value="MC">Monaco</option>
+        <option value="MN">Mongolia</option>
+        <option value="MS">Montserrat</option>
+        <option value="MA">Morocco</option>
+        <option value="MZ">Mozambique</option>
+        <option value="MM">Myanmar</option>
+        <option value="NA">Namibia</option>
+        <option value="NR">Nauru</option>
+        <option value="NP">Nepal</option>
+        <option value="NL">Netherlands</option>
+        <option value="AN">Netherlands Antilles</option>
+        <option value="NC">New Caledonia</option>
+        <option value="NZ">New Zealand</option>
+        <option value="NI">Nicaragua</option>
+        <option value="NE">Niger</option>
+        <option value="NG">Nigeria</option>
+        <option value="NU">Niue</option>
+        <option value="NF">Norfolk Island</option>
+        <option value="MP">Northern Mariana Islands</option>
+        <option value="NO">Norway</option>
+        <option value="OM">Oman</option>
+        <option value="PK">Pakistan</option>
+        <option value="PW">Palau</option>
+        <option value="PA">Rep. of Panama</option>
+        <option value="PG">Papua New Guinea</option>
+        <option value="PY">Paraguay</option>
+        <option value="CN">People&#39;s Rep. China</option>
+        <option value="PE">Peru</option>
+        <option value="PH">Philippines</option>
+        <option value="PN">Pitcairn</option>
+        <option value="PL">Poland</option>
+        <option value="PT">Portugal</option>
+        <option value="QA">Qatar</option>
+        <option value="RE">Reunion</option>
+        <option value="RO">Romania</option>
+        <option value="RU">Russia</option>
+        <option value="RW">Rwanda</option>
+        <option value="KN">Saint Kitts and Nevis</option>
+        <option value="LC">Saint Lucia</option>
+        <option value="WS">Samoa</option>
+        <option value="SM">Rep. San Marino</option>
+        <option value="ST">Sao Tome and Principe</option>
+        <option value="SA">Saudi Arabia</option>
+        <option value="SN">Senegal</option>
+        <option value="SC">Seychelles</option>
+        <option value="SL">Sierra Leone</option>
+        <option value="SG">Singapore</option>
+        <option value="SK">Slovakia</option>
+        <option value="SI">Slovenia</option>
+        <option value="SB">Solomon Islands</option>
+        <option value="SO">Somalia</option>
+        <option value="ZA">South Africa</option>
+        <option value="ES">Spain</option>
+        <option value="LK">Rep. of Sri Lanka</option>
+        <option value="SH">St. Helena</option>
+        <option value="PM">St. Pierre and Miquelon</option>
+        <option value="SD">Sudan</option>
+        <option value="SR">Suriname</option>
+        <option value="SJ">Svalbard and Jan Mayen</option>
+        <option value="SZ">Swaziland</option>
+        <option value="SE">Sweden</option>
+        <option value="CH">Switzerland</option>
+        <option value="SY">Syrian Arab Republic</option>
+        <option value="TW">Taiwan, ROC</option>
+        <option value="TJ">Tajikstan</option>
+        <option value="TZ">Tanzania</option>
+        <option value="TH">Thailand</option>
+        <option value="TG">Togo</option>
+        <option value="TK">Tokelau</option>
+        <option value="TO">Tonga</option>
+        <option value="TT">Trinidad West Indies</option>
+        <option value="TN">Tunisia</option>
+        <option value="TR">Turkey</option>
+        <option value="TM">Turkmenistan</option>
+        <option value="TC">Turks and Caicos Islands</option>
+        <option value="TV">Tuvalu</option>
+        <option value="UG">Uganda</option>
+        <option value="UA">Ukraine</option>
+        <option value="AE">UAE</option>
+        <option value="UK">United Kingdom</option>
+        <option value="UY">Uruguay</option>
+        <option value="VI">US Virgin Islands</option>
+        <option value="UZ">Uzbekistan</option>
+        <option value="VU">Vanuatu</option>
+        <option value="VA">Vatican City State</option>
+        <option value="VE">Venezuela</option>
+        <option value="VN">Vietnam</option>
+        <option value="WF">Wallis and Futuna Islands</option>
+        <option value="EH">Western Sahara</option>
+        <option value="YE">Yemen</option>
+        <option value="YU">Yugoslavia</option>
+        <option value="ZR">Zaire</option>
+        <option value="ZM">Zambia</option>
+        <option value="ZW">Zimbabwe</option>
+      </select>
+    </div>
+    <div >E-mail Address:</div>
+    <div >
+      <input name="PrimaryEmail" type="text" maxlength="100" size="30" id="PrimaryEmail" />
+      <span id="PrimaryEmail" style="color:Red;display:none;">Please enter your email address.</span> <span id="Email" style="color:Red;display:none;">Please enter valid email address.</span></div>
+    <div >Phone Number:</div>
+    <div >
+      <input name="Phone" type="text" maxlength="50" size="30" id="Phone" />
+      <span id="Phone" style="color:Red;display:none;">Please enter a phone number.</span></div>
+  </div>
+<select name="States" id="States">
+  <option value="">Select if in USA</option>
+  <option value="AL">Alabama</option>
+  <option value="AK">Alaska</option>
+  <option value="AS">American Samoa</option>
+  <option value="AZ">Arizona</option>
+  <option value="AR">Arkansas</option>
+  <option value="CA">California</option>
+  <option value="CO">Colorado</option>
+  <option value="CT">Connecticut</option>
+  <option value="DE">Delaware</option>
+  <option value="DC">District of Columbia</option>
+  <option value="FM">Federated States of Micronesia</option>
+  <option value="FL">Florida</option>
+  <option value="GA">Georgia</option>
+  <option value="GU">Guam</option>
+  <option value="HI">Hawaii</option>
+  <option value="ID">Idaho</option>
+  <option value="IL">Illinois</option>
+  <option value="IN">Indiana</option>
+  <option value="IA">Iowa</option>
+  <option value="KS">Kansas</option>
+  <option value="KY">Kentucky</option>
+  <option value="LA">Louisiana</option>
+  <option value="ME">Maine</option>
+  <option value="MH">Marshall Islands</option>
+  <option value="MD">Maryland</option>
+  <option value="MA">Massachusetts</option>
+  <option value="MI">Michigan</option>
+  <option value="MN">Minnesota</option>
+  <option value="MS">Mississippi</option>
+  <option value="MO">Missouri</option>
+  <option value="MT">Montana</option>
+  <option value="NE">Nebraska</option>
+  <option value="NV">Nevada</option>
+  <option value="NH">New Hampshire</option>
+  <option value="NJ">New Jersey</option>
+  <option value="NM">New Mexico</option>
+  <option value="NY">New York</option>
+  <option value="NC">North Carolina</option>
+  <option value="ND">North Dakota</option>
+  <option value="MP">Northern Mariana Islands</option>
+  <option value="NA">Not Applicable</option>
+  <option value="OH">Ohio</option>
+  <option value="OK">Oklahoma</option>
+  <option value="OR">Oregon</option>
+  <option value="PW">Palau</option>
+  <option value="PA">Pennsylvania</option>
+  <option value="PR">Puerto Rico</option>
+  <option value="RI">Rhode Island</option>
+  <option value="SC">South Carolina</option>
+  <option value="SD">South Dakota</option>
+  <option value="TN">Tennessee</option>
+  <option value="TX">Texas</option>
+  <option value="UT">Utah</option>
+  <option value="VT">Vermont</option>
+  <option value="VI">Virgin Islands</option>
+  <option value="VA">Virginia</option>
+  <option value="WA">Washington</option>
+  <option value="WV">West Virginia</option>
+  <option value="WI">Wisconsin</option>
+  <option value="WY">Wyoming</option>
+</select>
+  
+  
+  
+  
+  <!--   FORM2        ------------------------------------------------------------------------------------------------------>
+  <div id="form2" >
+    
+   <div >
+      <p>If you are under 18, you must have your parents permission to enter.</p>
+    </div>
+   <div id="parentGuardian">
+   	 
+     <a  style="cursor:pointer;" onClick="show_hide('info_1');">Under 18, click here</a>
+     <br />
+     <br />
+
+     <div id="info_1" style="display:none;">
+    <div >Parent/Guardian Name:</div>
+    <div >
+      <input name="Guardian" type="text" maxlength="50" size="30" id="Guardian" />
+    </div>
+    <div >Training (when/where):</div>
+
+    
+    <div >
+      <input name="WhereScouted" type="text" maxlength="50" size="30" id="WhereScouted" />
+    </div>
+</div>
+    <div >Represented:</div>
+    <div >
+      <input id="RepresentedYes" type="radio" name="Represented" value="rdoRepresentedYes" />
+      <label for="RepresentedYes">Yes</label>
+      &nbsp;
+      <input id="RepresentedNo" type="radio" name="noRepresented" value="rdoRepresentedNo" checked="checked" />
+      <label for="RepresentedNo">No</label>
+    </div>
+    <div >If Yes, By Whom?</div>
+    <div >
+      <input name="Notes" type="text" maxlength="50" size="30" id="Notes" />
+    </div>
+    <div >Date of Birth:</div>
+    <div >
+      <input name="Birthdate" type="text" id="Birthdate" />
+      <span id="Birthdate" style="color:Red;display:none;">Please enter your date of birth as mm/dd/yyyy.</span></div>
+    <div >Gender:</div>
+    <div >
+      <input id="rdoFemale" type="radio" name="Gender" value="rdoFemale" checked="checked" />
+      <label for="rdoFemale">Female</label>
+      <br />
+      <input id="rdoMale" type="radio" name="ctl00$ContentPlaceHolder1$Gender" value="rdoMale" />
+      <label for="rdoMale">Male</label>
+    </div>
+    <div >Height:</div>
+    <div >
+      <select name="lstAttributeValues" id="lstAttributeValues">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="3439ae00-3f22-48a8-a4f8-013b926d7147">5&#39; 2&quot;</option>
+        <option value="47bb648a-9814-467a-b8df-cb57868d723f">5&#39; 2.5&quot;</option>
+        <option value="60be7596-60f1-432f-b920-ba4843273a52">5&#39; 3&quot;</option>
+        <option value="da34fd24-2999-4109-98c1-046c72fc00a9">5&#39; 3.5&quot;</option>
+        <option value="98532092-8263-461f-8640-4a67fd54baa2">5&#39; 4&quot;</option>
+        <option value="82a0e5fe-8c64-4d5e-a921-f53989a67765">5&#39; 4.5&quot;</option>
+        <option value="980c20a1-fc9e-456d-90a1-07f10d0d3c11">5&#39; 5&quot;</option>
+        <option value="da4df76d-1fe3-4c8d-8043-3e2ae46d8c6f">5&#39; 5.5&quot;</option>
+        <option value="015763e9-d6d6-4c30-961c-e12bc83d2bdc">5&#39; 6&quot;</option>
+        <option value="0a970ad0-ccd2-4c1b-bb7e-14fe66f059ff">5&#39; 6.5&quot;</option>
+        <option value="36e0fd34-2e05-47aa-a6be-1b944bab59cd">5&#39; 7&quot;</option>
+        <option value="747c3fe4-42f8-4b97-b1fe-5c3c2f2dbc25">5&#39; 7.5&quot;</option>
+        <option value="86c7f744-37c9-4e63-a369-3cc23037ac6e">5&#39; 8&quot;</option>
+        <option value="c8f54bdc-48b1-4fe0-aec9-888a913eceb8">5&#39; 8.5&quot;</option>
+        <option value="8b07c2c1-bf63-4c11-a4e4-48e15232da96">5&#39; 9&quot;</option>
+        <option value="5dc2c7a9-826f-42a5-b43b-4feebb70438e">5&#39; 9.5&quot;</option>
+        <option value="e2eb96e5-d129-41bf-b236-e26a10c82837">5&#39; 10&quot;</option>
+        <option value="068d7d5c-7a5f-48f8-8290-595f4ce33542">5&#39; 10.5&quot;</option>
+        <option value="4c75ae01-a533-4b27-962b-d55ce2a6104c">5&#39; 11&quot;</option>
+        <option value="81c4cbf3-eee4-429f-be93-8805cf3f46e9">5&#39; 11.5&quot;</option>
+        <option value="265fc91a-c0e7-4c3a-80aa-76ec185d5447">6&#39; 0&quot;</option>
+        <option value="2975dbbf-0647-4876-af39-b13789b3cd24">6&#39; 0.5&quot;</option>
+        <option value="0f9512ff-5845-44ed-9550-9f571dd6750c">6&#39; 1&quot;</option>
+        <option value="6e472e2a-3b30-4142-ab3f-497b0b441281">6&#39; 1.5&quot;</option>
+        <option value="046162d7-290f-4aef-90a8-fc47660987ff">6&#39; 2&quot;</option>
+        <option value="00102cc5-9d47-4d22-beb3-aab666c1e4df">6&#39; 2.5&quot;</option>
+        <option value="a65a71c7-ce0d-4c19-a3c0-5dfb877495a1">6&#39; 3&quot;</option>
+        <option value="58c32ae1-7234-4329-9d75-8c813197c6a1">6&#39; 3.5&quot;</option>
+        <option value="06dccb01-12d0-41c8-8b8e-714a94090d11">6&#39; 4&quot;</option>
+        <option value="fb20ef51-1d6f-4241-ad08-84b55aecd1ca">6&#39; 4.5&quot;</option>
+        <option value="03447822-7da8-48ad-90b9-666bea3db1d0">6&#39; 5&quot;</option>
+        <option value="0ab6036f-9c72-46b2-b8e4-cf123f8aeab9">6&#39; 5.5&quot;</option>
+      </select>
+    </div>
+    <div >Bust:</div>
+    <div >
+      <select name="lstAttributeValues" id="lstAttributeValues">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="aa3a50d8-7f43-476f-a2f3-927c3eaef7e0">24.5&quot;</option>
+        <option value="d5ee0ccd-8de0-4864-a036-5a16b90a14e3">25&quot;</option>
+        <option value="14495c6e-5367-4ce7-8667-cf1000be9bb4">25.5&quot;</option>
+        <option value="69683763-ff77-44c9-a122-b4f9c88b8b35">26&quot;</option>
+        <option value="9e6abf3a-ca32-40e4-a226-48a89de2431f">26.5&quot;</option>
+        <option value="b3b19bbf-07ee-4816-b4a9-ce51eb651cc2">27&quot;</option>
+        <option value="bcb1d36e-e5ca-4d3b-8dd5-223aa7dc4afd">27.5&quot;</option>
+        <option value="476d8f22-6f96-4c90-9f95-b571c3460dcb">28&quot;</option>
+        <option value="f59aa7c1-4d41-445d-90ac-ef2bd7f5c5bd">28.5&quot;</option>
+        <option value="065daa91-6d47-4ce6-b297-bde36d2b419a">29&quot;</option>
+        <option value="2b864149-eff6-4aeb-8ad3-a7ee83683fb2">29.5&quot;</option>
+        <option value="c698fa3f-a4d8-48f9-9aab-635abf3ab7dc">30&quot;</option>
+        <option value="f5c2d8be-3a51-4adb-8595-3e93215284a9">30.5&quot;</option>
+        <option value="ed93f806-f307-433b-8c47-c153befb7403">31&quot;</option>
+        <option value="41323096-7a37-4185-a8a6-ce6cd44fe264">31.5&quot;</option>
+        <option value="1c047de5-64e1-4b28-a38a-8cc8fc86dafb">32&quot;</option>
+        <option value="74008761-c9c7-41bc-99fb-799349e395cf">32.5&quot;</option>
+        <option value="d781d4f9-fba7-458a-9ad9-619e8b7e6cc1">33&quot;</option>
+        <option value="2be80faf-35de-47cd-ab14-e185e710e131">33.5&quot;</option>
+        <option value="c5ee1457-e7d5-43a1-ad77-150e4c500e5f">34&quot;</option>
+        <option value="cf90ed77-33f0-4ae9-a9d4-fc62fe59530d">34.5&quot;</option>
+        <option value="58e01fcf-b4ea-4eaf-bb38-56c14477a8e2">35&quot;</option>
+        <option value="dc60df79-bc50-4b44-b328-f26618c90d8f">35.5&quot;</option>
+        <option value="31e685ae-439e-4a5a-ab3b-4e77eb9321e4">36&quot;</option>
+        <option value="921273bf-7e3c-4ea6-8dfa-c321d719b8fb">36.5&quot;</option>
+        <option value="10627b97-e42e-4c49-92ce-8973157a3f61">37&quot;</option>
+        <option value="d70ffcee-cf92-47a0-a48f-732f75ef047e">37.5&quot;</option>
+        <option value="47958026-5a36-4430-8b26-2f80c6a2de8b">38&quot;</option>
+        <option value="db1491a7-9978-437d-b902-156d5cbd30c4">38.5&quot;</option>
+        <option value="fba181e0-1998-4366-9a6d-36e52c611120">39&quot;</option>
+        <option value="f5cf846f-c728-40ac-8b16-dff04d35b46f">39.5&quot;</option>
+        <option value="624ecbb7-2034-4f71-9173-7bf2f17c2f29">40&quot;</option>
+        <option value="1268e2dc-cab3-4172-bd6e-0bb3faa33566">40.5&quot;</option>
+        <option value="7379e681-eef3-4447-8c17-dc238e878c53">41&quot;</option>
+        <option value="6492ae8e-c2e1-4274-b1fc-e42adcda8ea1">41.5&quot;</option>
+        <option value="c47ade82-064a-471b-bef4-5cd8ee794034">42&quot;</option>
+      </select>
+    </div>
+    <div >Cup:</div>
+    <div >
+      <select name="lstAttributeValues" id="lstAttributeValues">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="279de33f-85da-496a-bd53-2216c3e94f12">A</option>
+        <option value="d434b554-a521-4e14-87ec-2fcbbf318952">B</option>
+        <option value="b22e3172-4d3f-45cb-bb54-23587ab41fa3">C</option>
+        <option value="9acbdf02-faff-4e9d-ac08-d963ecbc2f94">D</option>
+        <option value="d7010341-e79e-4061-bfb5-9051f3bf33ad">DD</option>
+      </select>
+    </div>
+    <div >Waist:</div>
+    <div >
+      <select name="lstAttributeValues" id="lstAttributeValues">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="93eba427-37bd-4c5b-aebf-f5f1b85870e4">15.5&quot;</option>
+        <option value="6667c3cc-70b5-4fe4-9901-a5644e5dcb37">16&quot;</option>
+        <option value="3fab5162-ea10-4176-913e-d45780d268f0">16.5&quot;</option>
+        <option value="e7c2db5d-70ac-4726-b9de-76069c7f84d0">17&quot;</option>
+        <option value="f5129610-7c01-4abb-b772-6c780ef0a916">17.5&quot;</option>
+        <option value="8d7f12f1-f06f-4fba-94b4-c16f2d15be02">18&quot;</option>
+        <option value="20f66f92-b058-453f-a742-611569488b9d">18.5&quot;</option>
+        <option value="0a15a4fb-251e-4664-b305-6e9cc33318d3">19&quot;</option>
+        <option value="bb5ad14a-e6d3-4f80-87b2-e14722e10062">19.5&quot;</option>
+        <option value="6ae6c35f-9282-4d65-9b51-14136dd97a1e">20&quot;</option>
+        <option value="09725a4b-97a6-4bd2-901b-ca600f85f07e">20.5&quot;</option>
+        <option value="3e99e9de-49f9-466f-afb8-a888931bd333">21&quot;</option>
+        <option value="018cadb2-6701-4272-8a48-c8f34d253998">21.5&quot;</option>
+        <option value="33ce6bc0-b19b-4f16-b415-30043ce2a536">22&quot;</option>
+        <option value="4bf37f6a-1b8f-4e8d-b721-1a0d764b6c37">22.5&quot;</option>
+        <option value="5ec163e6-4f6e-4a87-97b3-127dd8a98143">23&quot;</option>
+        <option value="c8dcb29c-19f2-41e6-bfaa-75a2b29643ad">23.5&quot;</option>
+        <option value="dcaff81f-963e-432c-8b3a-7a0692ecd5e0">24&quot;</option>
+        <option value="07c10815-2d9c-458e-8612-55793fcf2414">24.5&quot;</option>
+        <option value="19ec0c5c-ebf0-4c76-9c9c-f2c58392315b">25&quot;</option>
+        <option value="0d8370dd-d7e4-497d-815a-211014194738">25.5&quot;</option>
+        <option value="adb6bdba-cd43-4b8d-9b40-bde0417b1f44">26&quot;</option>
+        <option value="06415957-9126-42bd-8031-2507ffc7021b">26.5&quot;</option>
+        <option value="692ff2f3-c915-4ca6-8b09-d20dcd030802">27&quot;</option>
+        <option value="1f39e32b-48e3-4272-b987-13a3d6d444e4">27.5&quot;</option>
+        <option value="5ab6e189-c424-4127-af42-ef3e3f819886">28&quot;</option>
+        <option value="c7cc0acc-1f6b-49ae-b914-3739fed8c631">28.5&quot;</option>
+        <option value="23dbd4ac-dbce-4494-8dfc-ec2d1c9fcb06">29&quot;</option>
+        <option value="b376b0b8-abff-4d22-9140-d718ca0c34a9">29.5&quot;</option>
+        <option value="c7bf74c0-fa16-4ce3-a4b2-f42b60b0da3e">30&quot;</option>
+        <option value="cb125451-21b2-4f71-a2d8-944b47ed725e">30.5&quot;</option>
+        <option value="491241bd-b24f-4978-9e67-0f22c34e0d15">31&quot;</option>
+        <option value="1fcb7bcc-7718-46e9-9d2a-8b7c303699ae">32&quot;</option>
+        <option value="353a9f41-e860-482e-a489-2ff781420d0f">33&quot;</option>
+        <option value="d2f9039d-ea21-4a4a-a047-a7b42497bc4c">34&quot;</option>
+        <option value="f0703e61-c8e1-4b4b-a7ef-dd27e3b96341">35&quot;</option>
+        <option value="e810dc30-d86c-454a-ac58-41dfa8d1d5f0">36&quot;</option>
+        <option value="b1a74a77-5983-4c87-922a-33377a8df7bd">37&quot;</option>
+        <option value="e40ac698-0067-43ad-8744-b033b0c4090c">38&quot;</option>
+        <option value="2e461fff-c612-4fa2-99d6-492432108b73">39&quot;</option>
+        <option value="4111dc47-e3ba-487b-833f-ff569383160c">40&quot;</option>
+      </select>
+    </div>
+    <div >Hips:</div>
+    <div >
+      <select name="lstAttributeValues" id="lstAttributeValues">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="b41200b4-b27f-47d0-9c58-d32c23cfd30b">24.5&quot;</option>
+        <option value="68f69d8f-7694-4751-96b4-31cd3d349fc3">25&quot;</option>
+        <option value="a08306c4-e102-405a-9dd4-ace83084e219">25.5&quot;</option>
+        <option value="734f1eeb-2dcd-46be-9949-e361cb344d27">26&quot;</option>
+        <option value="1dbab129-8ff3-42b2-a4bd-8cc904236700">26.5&quot;</option>
+        <option value="7c9e247f-20f1-41a6-b71b-d2cb5c33119d">27&quot;</option>
+        <option value="907c5181-1043-4224-b046-76ccb8ac1c06">27.5&quot;</option>
+        <option value="059e4950-2ed9-4ae5-9a01-1e11b57f654c">28&quot;</option>
+        <option value="0bf5bc9d-320c-4e58-8a77-a8eaaafb4f76">28.5&quot;</option>
+        <option value="41a997ca-8255-4fef-967a-d28aeb5f2cb1">29&quot;</option>
+        <option value="463b9803-a949-415e-9fcb-30f405e44e72">29.5&quot;</option>
+        <option value="d3e22d5f-3811-49fd-8fc4-2716603c2a7f">30&quot;</option>
+        <option value="d57efdb2-e70b-4a56-ba1f-6458b4cb9533">30.5&quot;</option>
+        <option value="dce5ca78-6852-40db-8397-07cbd9544115">31&quot;</option>
+        <option value="1e2b1418-70d0-4199-9e1e-8ec6b4e66738">31.5&quot;</option>
+        <option value="cb19391a-3ead-48bf-b719-dddbe278a808">32&quot;</option>
+        <option value="c4971d44-24bb-4244-899d-fe2dadfddb67">32.5&quot;</option>
+        <option value="d0d1c4f9-4648-423f-9755-d43c827fb61e">33&quot;</option>
+        <option value="7a8a00be-4f93-43f4-bb83-fef22abe9825">33.5&quot;</option>
+        <option value="93752af5-1256-45dd-b425-d435fbf6e968">34&quot;</option>
+        <option value="3df47aa4-479c-4a5c-9260-5dc230462050">34.5&quot;</option>
+        <option value="9773a2ee-2595-41aa-a67f-2534e740fff0">35&quot;</option>
+        <option value="1822a677-629e-474d-9c3e-756c06b27933">35.5&quot;</option>
+        <option value="c2bcb2de-75de-4fb3-aa81-6488510320bf">36&quot;</option>
+        <option value="aba682c6-55ed-412f-8390-a2675000cf30">36.5&quot;</option>
+        <option value="d021b27d-1c84-417c-9c1d-c1880add96e7">37&quot;</option>
+        <option value="6c58a097-13be-4e46-b416-84058733510f">37.5&quot;</option>
+        <option value="deeb8336-9e4a-4f32-901a-b2114684bc27">38&quot;</option>
+        <option value="afdefae8-60b5-4030-a7ba-d2af100cf847">38.5&quot;</option>
+        <option value="b97c901d-8382-43c2-891b-c3eb535b2097">39&quot;</option>
+        <option value="5f571081-93ff-4e8b-9993-716e89b8d440">39.5&quot;</option>
+        <option value="862c7c0c-ab93-4fa2-98d0-d741a846a395">40&quot;</option>
+        <option value="8517c745-87dc-4583-ae93-cd009cecd64c">40.5&quot;</option>
+        <option value="2cc96cdf-d6cc-40c2-bbe8-d14915a1b80a">41&quot;</option>
+        <option value="b72d504c-ad4c-41d0-84dc-30a80f76f1c0">41.5&quot;</option>
+        <option value="dd3f3ca8-0f39-4da1-981a-7442b783030a">42&quot;</option>
+        <option value="5508d14f-31c1-4ec2-85b3-af2d0ccf516d">42.5&quot;</option>
+        <option value="01e5f2cf-e453-491f-8a96-c0d458c02ef4">43&quot;</option>
+        <option value="c0e09034-e078-4668-8721-d937dbfc9914">43.5&quot;</option>
+        <option value="d3105c01-4789-427d-850a-225cb6666959">44&quot;</option>
+        <option value="4cbf3e59-8fa1-4958-9846-52b325c43ac1">44.5&quot;</option>
+        <option value="b4575093-a762-4a05-817f-7dfd88308d94">45&quot;</option>
+        <option value="c54e965e-2614-4835-90d0-48cac99c365d">45.5&quot;</option>
+        <option value="1701eb7b-b21e-436e-9af1-76979d698304">46&quot;</option>
+        <option value="1dd0b906-df1d-4870-9fcc-431c8e8a101b">46.5&quot;</option>
+        <option value="4a8177f1-c63b-49f3-a9a1-fdf4496514ee">47&quot;</option>
+        <option value="3bbb3e25-dd69-4093-9487-921a5640cfa3">47.5&quot;</option>
+        <option value="d83364b4-2942-4525-9357-88917668e3a2">48&quot;</option>
+        <option value="e122ca64-53e1-4773-a532-7908184bb445">48.5&quot;</option>
+        <option value="6c4b7373-a759-4746-9bb1-da100503bcdc">49&quot;</option>
+        <option value="c4efeed5-ee90-4d0c-8543-d3f6b6d72b11">49.5&quot;</option>
+        <option value="1215f704-115b-47ae-9216-6cc0fcded250">50&quot;</option>
+      </select>
+    </div>
+    <div >Dress:</div>
+    <div >
+      <select name="lstAttributeValues" id="lstAttributeValues">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="8d02ffe1-ffb6-4de4-aec6-1542cd7af246">0</option>
+        <option value="c2f1046d-687c-4247-8d1e-29fe7ac32165">2</option>
+        <option value="80b15d48-7dc1-4842-9764-2c28a2e9a543">4</option>
+        <option value="3d28705c-25fd-4d4f-ad65-5c2efd287689">6</option>
+        <option value="bbe4ee50-2f0e-4247-8dba-cb7e7cb3000a">8</option>
+        <option value="cea2da48-aa63-4023-8f1c-c2c610e25d50">10</option>
+        <option value="a4b325bb-f46c-4bc9-834d-da4f8a29193a">12</option>
+        <option value="1d937765-6769-4756-9f40-d95c1fc515dc">14</option>
+        <option value="5dd8ebc2-ffea-41e3-afb5-78c57068e6b9">16</option>
+        <option value="c61d1000-72cd-4253-b9fa-b1b7e2c55938">18</option>
+      </select>
+    </div>
+    <div >Shoes:</div>
+    <div >
+      <select name="lstAttributeValues" id="lstAttributeValues">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="7d4ce465-112e-4837-b3d7-fad12a396abe">4</option>
+        <option value="03896d29-0116-4aad-a205-2bcc1bed7c5e">4.5</option>
+        <option value="a67deb97-6fc8-46c7-a6cc-73147d064b5b">5</option>
+        <option value="739e5587-a4ab-44f7-87ef-1c4e0597003f">5.5</option>
+        <option value="ef960795-bd88-42cd-9448-a0f502f2ba48">6</option>
+        <option value="10ae6149-4f5e-42e4-add7-7a8a79418112">6.5</option>
+        <option value="95c2ed14-7d7c-4e53-afa7-25784cc5c51a">7</option>
+        <option value="48d904ee-8a81-4d29-ab8d-ae12e9f61b5f">7.5</option>
+        <option value="afe92e0e-2904-4778-a8a5-00b7133087a3">8</option>
+        <option value="037c0bef-0ab9-4754-ac73-3ba756adf1af">8.5</option>
+        <option value="70d73d3a-3dcb-4c8b-8f09-2d6695f31da7">9</option>
+        <option value="d37f5569-490c-4cd2-9427-31911bc93813">9.5</option>
+        <option value="d1e9688b-240d-4162-ba7f-962f9b72c607">10</option>
+        <option value="3b637c86-249b-48dc-89ec-54d6337bc47f">10.5</option>
+        <option value="8f00a8b4-7281-41f2-8c8a-b610d7ff19a2">11</option>
+        <option value="e9602694-7a91-438a-9555-adcc4e0ed264">11.5</option>
+        <option value="b86f4c96-038e-407a-b137-3d30d5a3a45a">12</option>
+        <option value="ddd2c997-438d-4452-ab0b-2798cc116030">12.5</option>
+        <option value="c668993a-a9e6-4b9e-989e-af8da1ffb837">13</option>
+        <option value="d2995c25-dc19-4c84-a82a-4f95fb711976">13.5</option>
+        <option value="8c132fc0-168e-472a-947d-31303e18ae8c">14</option>
+        <option value="bdfdb627-075a-4692-a177-40daedf6c4a6">14.5</option>
+      </select>
+    </div>
+    <div >Hair:</div>
+    <div >
+      <select name="lstAttributeValues" id="lstAttributeValues">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="eca8cdab-ced2-403a-8054-6fd6194298a1">Blonde</option>
+        <option value="7e37322e-6422-4805-9baa-c463ed0a38c4">Brown</option>
+        <option value="ba87dcda-f40e-484f-bd8c-b1b6f0d6ca63">Light Brown</option>
+        <option value="f7229455-2db9-4e04-b9bd-c759f5d59c08">Dark Brown</option>
+        <option value="ec4acae0-3e6c-4e8f-8787-2c8ec250b942">Black</option>
+        <option value="594ea09f-1fbd-4cc1-b3e4-431566e8ef80">Red</option>
+        <option value="9e6e44b8-57c0-4edb-ac4f-0c393511eb80">Auburn</option>
+        <option value="dde3724e-c196-4234-8ab7-69754255682a">Platinum</option>
+        <option value="6d68f001-6d09-45c7-84ef-f3d451d2d8ef">Salt &amp; Pepper</option>
+        <option value="d6bf4165-8873-4660-ad05-733eba861207">Gray</option>
+        <option value="4462f63b-e088-4545-8bf3-006f35a3cef1">Bald</option>
+        <option value="4faccaba-bd98-4e56-ae01-7c2e73addab5">White</option>
+        <option value="8b5e2623-b748-4956-a20e-f3f69c96863a">Dark Blonde</option>
+        <option value="8c138356-8fe2-4798-8b69-0bbba173244c">Light Blonde</option>
+        <option value="6ffd5590-cfb2-4403-b4c2-7200ab006ec3">Strawberry Blonde</option>
+        <option value="9d78ee36-1ee5-4209-a688-b9ac92e78568">Shaved</option>
+      </select>
+    </div>
+    <div >Eyes:</div>
+    <div >
+      <select name="lstAttributeValues" id="lstAttributeValues">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="a06ed686-1506-42ae-8ec2-06984dbab4ba">Blue</option>
+        <option value="a8ae8400-ceca-49bd-9f3b-a61d75bf1898">Green</option>
+        <option value="4869e54f-cb03-4bfd-a833-17f9037e15e2">Blue-Green</option>
+        <option value="5b738979-fc2e-48b8-9a73-f466cfb08ff6">Gray</option>
+        <option value="fa35576d-2df9-459c-b60b-61029791eb82">Blue-Gray</option>
+        <option value="f32c2f85-6a25-4992-b2ca-ecf56c110b8c">Black</option>
+        <option value="763bf89f-9c0b-427d-bfc0-12925e1b7f92">Brown</option>
+        <option value="c5dbcc5a-4f78-4c0d-bdb6-007c5088cce5">Hazel</option>
+        <option value="87441e74-8952-477e-873b-88b5231652d6">Dark Brown</option>
+        <option value="1410d8b6-0008-4593-8bc6-695ff024aaf6">Gray-Green</option>
+      </select>
+    </div>
+    <div >Suit:</div>
+    <div >
+      <select name="lstAttributeValues" id="lstAttributeValues">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="eac6ceca-7e72-4cd6-8d9c-eff63852cf6a">37&quot;</option>
+        <option value="91d7e0ea-e41b-458b-9561-a544997cdf33">38&quot;</option>
+        <option value="f1394349-c282-4f62-83cb-45471414a6c3">39&quot;</option>
+        <option value="f7d10bfc-2248-49ef-97f5-a30914380f0b">40&quot;</option>
+        <option value="7da9f7ce-c9d5-4fce-b6ed-9f1282903b76">41&quot;</option>
+        <option value="701788ea-19a6-4cbd-aedd-349548e6a6f2">42&quot;</option>
+        <option value="ad6c47fc-1895-4425-9ef9-1f9d5872c594">43&quot;</option>
+        <option value="b1abee00-d8b9-479a-b979-eb97552eabec">44&quot;</option>
+        <option value="30253e9d-d409-4331-abb9-42e6941f031c">45&quot;</option>
+        <option value="259dfe55-ac3d-4c9a-ad9b-a670242b5877">46&quot;</option>
+        <option value="f3d23436-6331-43dc-915c-472dc36ff9e8">47&quot;</option>
+        <option value="3f780ddf-5de7-450a-9451-347ffd7e20e5">48&quot;</option>
+        <option value="43edf9a0-0fa9-4491-9f1d-25495e70c8d5">49&quot;</option>
+        <option value="37f51dbc-7915-4223-a701-eef0ec281921">50&quot;</option>
+      </select>
+    </div>
+    <div >Suit Length:</div>
+    <div >
+      <select name="lstAttributeValues" id="lstAttributeValues">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="610d61bc-9a16-4307-8ab5-957d2046c4f3">S</option>
+        <option value="224dc2e4-6cc9-4c1a-9252-ff49a7a64e35">R</option>
+        <option value="3685c407-c733-4d1e-b03f-f4f5f0395bc7">L</option>
+        <option value="3b31a71a-ae42-47bb-9d6e-a3265d7c08b2">XL</option>
+      </select>
+    </div>
+    <div >Shirt:</div>
+    <div >
+      <select name="lstAttributeValues" id="lstAttributeValues">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="3361cb2e-dabd-467e-a7b8-c4292e098f1c">14&quot;</option>
+        <option value="f025913a-723c-4a4f-8586-360db916874f">14.5&quot;</option>
+        <option value="9ccfc8f8-b503-4766-a319-629ae940837b">15&quot;</option>
+        <option value="21e614b7-5081-434f-9e03-3bac2cec853f">15.5&quot;</option>
+        <option value="86a6a85d-547f-48da-994a-1965837f4b01">16&quot;</option>
+        <option value="392c5e2c-7f96-43bc-b3dd-6b98d291eee0">16.5&quot;</option>
+        <option value="8e9da78b-2792-493a-97b8-10fee0027c23">17&quot;</option>
+        <option value="5d5cd45b-b48d-4ca7-8327-53d9ff918a47">17.5&quot;</option>
+        <option value="78501df5-a2d7-4a36-8a7f-bc5dc393c43c">18&quot;</option>
+      </select>
+    </div>
+    <div >Shirt Sleeve:</div>
+    <div>
+      <select name="lstAttributeValues" id="lstAttributeValues">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="de30a59a-d98e-412c-8919-fcd7857097a4">30&quot;</option>
+        <option value="b7c40192-af89-4111-9dce-3afbb33cfbac">31&quot;</option>
+        <option value="79d23c0f-8cb0-4496-9833-48b64e11661a">32&quot;</option>
+        <option value="f3a975a4-c527-4ae3-9fe8-136f9946f9a4">33&quot;</option>
+        <option value="b22422e2-b789-4142-a462-ebfcf7a411e7">34&quot;</option>
+        <option value="3d1febb5-f686-49cc-893f-2ad809e10e55">35&quot;</option>
+        <option value="6cdb43da-34c0-46f4-bacf-574a14cd9e81">36&quot;</option>
+        <option value="1de4459c-ccd1-4cc8-b1bf-a3a8e9ce4466">37&quot;</option>
+        <option value="9ae8ec96-6389-468c-83dc-9444567c5c89">38&quot;</option>
+        <option value="9b354430-c31d-4d9f-97fa-12e097d6bb83">39&quot;</option>
+        <option value="a164357f-6037-43c6-9ccd-f08cd7621dd4">40&quot;</option>
+        <option value="25b4bb20-df43-4d1e-b36b-2bd01cfaf1a3">41&quot;</option>
+      </select>
+    </div>
+    <div >Inseam:</div>
+    <div >
+      <select name="lstAttributeValues" id="lstAttributeValues">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="83918904-3e57-4509-9302-952f38c7e30e">27&quot;</option>
+        <option value="c433f8db-8aef-4947-b01c-8d6b71a77aa6">28&quot;</option>
+        <option value="d8c63b11-2800-4db6-acba-1925cf0a3ba5">29&quot;</option>
+        <option value="d6480ffb-0bcb-47f0-9844-3cb496975c8e">30&quot;</option>
+        <option value="fc9c6a83-12f1-4524-8c23-723199ddd161">31&quot;</option>
+        <option value="ba54bc17-9e02-4402-b1fb-e9a6f71c60d8">32&quot;</option>
+        <option value="7b2f6ab6-8ff9-4379-9c03-12c96bce2256">33&quot;</option>
+        <option value="9c186edb-446b-4f4c-b059-509ac9808f43">34&quot;</option>
+        <option value="b51b085a-f47d-4b98-9664-00099185deb8">35&quot;</option>
+        <option value="9eeef824-e33d-4ab6-bf13-a50b38a92dc1">36&quot;</option>
+        <option value="06c0edab-4c50-4bdc-9ea2-6e76c98e05c0">37&quot;</option>
+        <option value="be783a78-d819-47c0-9323-b407288cba44">38&quot;</option>
+        <option value="d107ce0a-6fc3-4491-a5ea-6b43d34ec3ca">39&quot;</option>
+        <option value="da091545-40eb-4dd1-8852-41496bc6777d">40&quot;</option>
+        <option value="148ee5ae-ab3e-4fa0-a365-14e8ae93033d">41&quot;</option>
+        <option value="05eb6acb-5b13-43ff-a058-d25d85b117ff">42&quot;</option>
+        <option value="213b7186-e787-4346-9c8b-f725f7cf2250">43&quot;</option>
+        <option value="ff7b6b99-303c-405b-940f-d24f81f9b79d">44&quot;</option>
+        <option value="d43f8c70-771c-4ee1-b9b0-0d5bf27a47a7">45&quot;</option>
+        <option value="23e2ffb1-8e82-46d6-97c0-3c7336158926">46&quot;</option>
+        <option value="4961b69e-7a37-430b-93da-2c44d1753649">47&quot;</option>
+        <option value="54a86e27-6567-4aa6-905a-70bf5882f3c3">48&quot;</option>
+        <option value="ef029403-79c0-49f5-89df-65a9335a13ef">49&quot;</option>
+        <option value="dd3512a6-0424-46aa-9673-70d149d4651e">50&quot;</option>
+      </select>
+    </div>
+  </div>
+  </div>
+    <!--  FORM2 end          ------------------------------------------------------------------------------------------------------>
+    
+     <!--  FORM3         ------------------------------------------------------------------------------------------------------>
+  <div id="form3"  >
+    <div >
+      <p>Please upload up to 5 photos. One should be a clear head shot and one a clear body shot. Your head shot should clearly show your entire face. Your body shot should display your build and body type. We suggest that you include a swimsuit shot.</p>
+    </div>
+    <div >Image 1:</div>
+    <div>
+      <input type="file" name="uploadFile1" id="uploadFile1" />
+      <span id="UploadFile1" style="color:Red;visibility:hidden;">Invalid image file.</span></div>
+    <div >Image 2:</div>
+    <div >
+      <input type="file" name="uploadFile2" id="uploadFile2" />
+      <span id="UploadFile2" style="color:Red;visibility:hidden;">Invalid image file.</span></div>
+    <div >Image 3:</div>
+    <div >
+      <input type="file" name="uploadFile3" id="uploadFile3" />
+      <span id="UploadFile3" style="color:Red;visibility:hidden;">Invalid image file.</span></div>
+    <div >Image 4:</div>
+    <div >
+      <input type="file" name="uploadFile4" id="uploadFile4" />
+      <span id="UploadFile4" style="color:Red;visibility:hidden;">Invalid image file.</span></div>
+    <div >Image 5:</div>
+    <div >
+      <input type="file" name="uploadFile5" id="uploadFile5" />
+      <span id="UploadFile5" style="color:Red;visibility:hidden;">Invalid image file.</span></div>
+    <div >
+      <input type="submit" name="btnSubmit" value="Submit"  />
+    </div>
+  </div>
+  <!--  FORM3 end          ------------------------------------------------------------------------------------------------------>
+  </form></div>
+  
+</div>
+
+  
+</body>
+</html>
