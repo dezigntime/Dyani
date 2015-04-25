@@ -1,0 +1,888 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Dyani Submit Form</title>
+
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script language="javascript" type="text/javascript">
+function show_hide(divID){
+var divArea = document.getElementById(divID)
+var divAreaImg = document.getElementById(divID+"_img")
+var divAreaVisible = divArea.style.display != "none"
+
+if(divAreaVisible){
+divArea.style.display = "none"
+divAreaImg.innerHTML = "<img src='/EN/Script/plus.jpg' border='0'>"
+}else{
+divArea.style.display = ""
+divAreaImg.innerHTML = "<img src='/EN/Script/minus.jpg' border='0'>"
+}
+}
+
+function show_hide_text(divID){
+var divArea = document.getElementById(divID)
+var divAreaImg = document.getElementById(divID+"_img")
+var divAreaVisible = divArea.style.display != "none"
+
+if(divAreaVisible){
+divArea.style.display = "none"
+divAreaImg.innerHTML = "+"
+}else{
+divArea.style.display = ""
+divAreaImg.innerHTML = "-"
+//ADDED TO CLOSE ANY EXPANDED SECTIONS
+close_others(divID)
+}
+
+}
+
+function close_others(divID){
+var span_tags = document.getElementsByTagName("span")
+for(i=0;i<span_tags.length;i++){
+//alert(span_tags[i].getAttribute('id')+" "+divID)
+if(span_tags[i].getAttribute('id') != divID){
+if(span_tags[i].getAttribute('id').indexOf('_img') == -1){
+span_tags[i].style.display = 'none'
+document.getElementById(span_tags[i].getAttribute('id')+"_img").innerHTML = "+"
+}
+}
+}
+}
+</script>
+
+<style type="text/css">
+
+body{
+margin:0;
+padding:0;
+line-height: 1.5em;
+background:url(SteelBg7.jpg) no-repeat center top fixed;
+
+}
+
+b{font-size: 110%;}
+em{color: red;}
+
+#maincontainer{
+width: 840px; /*Width of main container*/
+margin: 0 auto; /*Center container on page*/
+}
+
+#topsection{
+background: #EAEAEA;
+height: 40px; /*Height of top section*/
+}
+
+#topsection h1{
+margin: 0;
+padding-top: 15px;
+}
+
+#contentwrapper{
+float: left;
+width: 100%;
+}
+
+#contentcolumn{
+margin: 0 300px 0 300px; /*Margins for content column. Should be "0 RightColumnWidth 0 LeftColumnWidth*/
+}
+
+#leftcolumn{
+	float: left;
+	width: 280px; /*Width of left column in pixel*/
+	margin-left: -870px; /*Set margin to that of -(MainContainerWidth)*/
+	
+}
+
+#rightcolumn{
+float: left;
+width: 190px; /*Width of right column*/
+margin-left: -190px; /*Set left margin to -(RightColumnWidth)*/
+
+}
+
+#footer{
+clear: left;
+width: 100%;
+background: black;
+color: #FFF;
+text-align: center;
+padding: 4px 0;
+}
+
+#footer a{
+color: #FFFF80;
+}
+
+.innertube{
+	margin: 10px; /*Margins for inner DIV inside each column (to provide padding)*/
+	margin-top: 0;
+}
+
+</style>
+
+<script type="text/javascript">
+/*** Temporary text filler function. Remove when deploying template. ***/
+var gibberish=["This is just some filler text", "Welcome to Dynamic Drive CSS Library", "Demo content nothing to read here"]
+function filltext(words){
+for (var i=0; i<words; i++)
+document.write(gibberish[Math.floor(Math.random()*3)]+" ")
+}
+</script>
+
+</head>
+<body>
+<div id="maincontainer">
+
+<!--<div id="topsection"><div class="innertube"><h1>&nbsp;</h1></div></div>-->
+
+<div id="contentwrapper">
+
+<form method="POST" action="process.php" enctype="multipart/form-data">
+<div id="contentcolumn">
+	<div class="innertube">
+    	  <div id="form2"  align="center">
+    
+   <div >
+   		<!--<div class="num" align="left"><h1>2.</h1></div>-->
+      <p>If you are under 18, you must have your parents permission to enter.</p>
+    </div>
+   <div id="parentGuardian">
+   	 
+     <a  style="cursor:pointer;" onClick="show_hide('info_1');">Under 18, click here</a>
+     <br />
+     <br />
+
+     <div id="info_1" style="display:none;">
+    <div >Parent/Guardian Name:</div>
+    <div >
+      <input name="Guardian" type="text" maxlength="50" size="30" id="Guardian" />
+    </div>
+    
+
+ </div>  
+ <div >Training (when/where):</div> 
+    <div >
+      <input name="WhereScouted" type="text" maxlength="50" size="30" id="WhereScouted" />
+    </div>
+</div>
+    <div >Represented:</div>
+    <div >
+      <input id="RepresentedYes" type="radio" name="Represented" value="rdoRepresentedYes" />
+      <label for="RepresentedYes">Yes</label>
+      &nbsp;
+      <input id="RepresentedNo" type="radio" name="noRepresented" value="rdoRepresentedNo" checked="checked" />
+      <label for="RepresentedNo">No</label>
+    </div>
+    <div >If Yes, By Whom?</div>
+    <div >
+      <input name="Notes" type="text" maxlength="50" size="30" id="Notes" />
+    </div>
+    <div >Date of Birth:</div>
+    <div >
+      <input name="Birthdate" type="text" id="Birthdate" />
+      <span id="Birthdate" style="color:Red;display:none;">Please enter your date of birth as mm/dd/yyyy.</span></div>
+    <div >Gender:</div>
+    <div >
+      <input id="rdoFemale" type="radio" name="Gender" value="rdoFemale" checked="checked" />
+      <label for="rdoFemale">Female</label>
+      <br />
+      <input id="rdoMale" type="radio" name="ctl00$ContentPlaceHolder1$Gender" value="rdoMale" />
+      <label for="rdoMale">Male</label>
+    </div>
+    <div >Height:</div>
+    <div >
+      <select name="height" >
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="5&#39; 2&quot;">5&#39; 2&quot;</option>
+        <option value="5&#39; 2.5&quot;">5&#39; 2.5&quot;</option>
+        <option value="53">5&#39; 3&quot;</option>
+        <option value="535">5&#39; 3.5&quot;</option>
+        <option value="54">5&#39; 4&quot;</option>
+        <option value="82a0e5fe-8c64-4d5e-a921-f53989a67765">5&#39; 4.5&quot;</option>
+        <option value="55">5&#39; 5&quot;</option>
+        <option value="555">5&#39; 5.5&quot;</option>
+        <option value="56">5&#39; 6&quot;</option>
+        <option value="565">5&#39; 6.5&quot;</option>
+        <option value="57">5&#39; 7&quot;</option>
+        <option value="575">5&#39; 7.5&quot;</option>
+        <option value="58">5&#39; 8&quot;</option>
+        <option value="585">5&#39; 8.5&quot;</option>
+        <option value="59">5&#39; 9&quot;</option>
+        <option value="595">5&#39; 9.5&quot;</option>
+        <option value="510">5&#39; 10&quot;</option>
+        <option value="5105">5&#39; 10.5&quot;</option>
+        <option value="511">5&#39; 11&quot;</option>
+        <option value="5115">5&#39; 11.5&quot;</option>
+        <option value="6">6&#39; 0&quot;</option>
+        <option value="605">6&#39; 0.5&quot;</option>
+        <option value="61">6&#39; 1&quot;</option>
+        <option value="615">6&#39; 1.5&quot;</option>
+        <option value="62">6&#39; 2&quot;</option>
+        <option value="625">6&#39; 2.5&quot;</option>
+        <option value="63">6&#39; 3&quot;</option>
+        <option value="635">6&#39; 3.5&quot;</option>
+        <option value="64">6&#39; 4&quot;</option>
+        <option value="645">6&#39; 4.5&quot;</option>
+        <option value="65">6&#39; 5&quot;</option>
+        <option value="655">6&#39; 5.5&quot;</option>
+      </select>
+    </div>
+    <div >Bust:</div>
+    <div >
+      <select name="bust" >
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="24.5">24.5&quot;</option>
+        <option value="25">25&quot;</option>
+        <option value="25.5">25.5&quot;</option>
+        <option value="26">26&quot;</option>
+        <option value="26.5">26.5&quot;</option>
+        <option value="27">27&quot;</option>
+        <option value="27.5">27.5&quot;</option>
+        <option value="28">28&quot;</option>
+        <option value="28.5">28.5&quot;</option>
+        <option value="29">29&quot;</option>
+        <option value="29.5">29.5&quot;</option>
+        <option value="30">30&quot;</option>
+        <option value="30.5">30.5&quot;</option>
+        <option value="31">31&quot;</option>
+        <option value="31.5">31.5&quot;</option>
+        <option value="32">32&quot;</option>
+        <option value="32.5">32.5&quot;</option>
+        <option value="33">33&quot;</option>
+        <option value="33.5">33.5&quot;</option>
+        <option value="34">34&quot;</option>
+        <option value="34.5">34.5&quot;</option>
+        <option value="35">35&quot;</option>
+        <option value="35.5">35.5&quot;</option>
+        <option value="36">36&quot;</option>
+        <option value="36.5">36.5&quot;</option>
+        <option value="37">37&quot;</option>
+        <option value="37.5">37.5&quot;</option>
+        <option value="38">38&quot;</option>
+        <option value="38.5">38.5&quot;</option>
+        <option value="39">39&quot;</option>
+        <option value="39.5">39.5&quot;</option>
+        <option value="40">40&quot;</option>
+        <option value="40.5">40.5&quot;</option>
+        <option value="41">41&quot;</option>
+        <option value="41.5">41.5&quot;</option>
+        <option value="42">42&quot;</option>
+      </select>
+    </div>
+    <div >Cup:</div>
+    <div >
+      <select name="cup">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="DD">DD</option>
+      </select>
+    </div>
+    <div >Waist:</div>
+    <div >
+      <select name="waist">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="15.5&quot;">15.5&quot;</option>
+        <option value="16&quot;">16&quot;</option>
+        <option value="16.5&quot;">16.5&quot;</option>
+        <option value="17&quot;">17&quot;</option>
+        <option value="17.5&quot;">17.5&quot;</option>
+        <option value="18&quot;">18&quot;</option>
+        <option value="18.5&quot;">18.5&quot;</option>
+        <option value="19&quot;">19&quot;</option>
+        <option value="19.5&quot;">19.5&quot;</option>
+        <option value="20&quot;">20&quot;</option>
+        <option value="20.5&quot;">20.5&quot;</option>
+        <option value="21&quot;">21&quot;</option>
+        <option value="21.5&quot;">21.5&quot;</option>
+        <option value="22&quot;">22&quot;</option>
+        <option value="22.5&quot;">22.5&quot;</option>
+        <option value="23&quot;">23&quot;</option>
+        <option value="23.5&quot;">23.5&quot;</option>
+        <option value="24&quot;">24&quot;</option>
+        <option value="24.5&quot;">24.5&quot;</option>
+        <option value="25&quot;">25&quot;</option>
+        <option value="25.5&quot;">25.5&quot;</option>
+        <option value="26&quot;">26&quot;</option>
+        <option value="26.5&quot;">26.5&quot;</option>
+        <option value="27&quot;">27&quot;</option>
+        <option value="27.5&quot;">27.5&quot;</option>
+        <option value="28&quot;">28&quot;</option>
+        <option value="28.5&quot;">28.5&quot;</option>
+        <option value="29&quot;">29&quot;</option>
+        <option value="29&quot;">29&quot;</option>
+        <option value="30&quot;">30&quot;</option>
+        <option value="30.5&quot;">30.5&quot;</option>
+        <option value="31&quot;">31&quot;</option>
+        <option value="32&quot;">32&quot;</option>
+        <option value="33&quot;">33&quot;</option>
+        <option value="34&quot;">34&quot;</option>
+        <option value="35&quot;">35&quot;</option>
+        <option value="36&quot;">36&quot;</option>
+        <option value="37&quot;">37&quot;</option>
+        <option value="38&quot;">38&quot;</option>
+        <option value="39&quot;">39&quot;</option>
+        <option value="40&quot;">40&quot;</option>
+      </select>
+    </div>
+    <div >Hips:</div>
+    <div >
+      <select name="hips">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="24.5&quot;">24.5&quot;</option>
+        <option value="25&quot;">25&quot;</option>
+        <option value="25.5&quot;">25.5&quot;</option>
+        <option value="26&quot;">26&quot;</option>
+        <option value="26.5&quot;">26.5&quot;</option>
+        <option value="27&quot;">27&quot;</option>
+        <option value="27.5&quot;">27.5&quot;</option>
+        <option value="28&quot;">28&quot;</option>
+        <option value="28.5&quot;">28.5&quot;</option>
+        <option value="29&quot;">29&quot;</option>
+        <option value="29.5&quot;">29.5&quot;</option>
+        <option value="30&quot;">30&quot;</option>
+        <option value="30.5&quot;">30.5&quot;</option>
+        <option value="31&quot;">31&quot;</option>
+        <option value="31.5&quot;">31.5&quot;</option>
+        <option value="32&quot;">32&quot;</option>
+        <option value="32.5&quot;">32.5&quot;</option>
+        <option value="33&quot;">33&quot;</option>
+        <option value="33.5&quot;">33.5&quot;</option>
+        <option value="34&quot;">34&quot;</option>
+        <option value="34.5&quot;">34.5&quot;</option>
+        <option value="35&quot;">35&quot;</option>
+        <option value="35.5&quot;">35.5&quot;</option>
+        <option value="36&quot;">36&quot;</option>
+        <option value="36.5&quot;">36.5&quot;</option>
+        <option value="37&quot;">37&quot;</option>
+        <option value="37.5&quot;">37.5&quot;</option>
+        <option value="38&quot;">38&quot;</option>
+        <option value="38.5&quot;">38.5&quot;</option>
+        <option value="39&quot;">39&quot;</option>
+        <option value="39.5&quot;">39.5&quot;</option>
+        <option value="40&quot;">40&quot;</option>
+        <option value="40.5&quot;">40.5&quot;</option>
+        <option value="41&quot">41&quot;</option>
+        <option value="41.5&quot">41.5&quot;</option>
+        <option value="42&quot">42&quot;</option>
+        <option value="42.5&quot">42.5&quot;</option>
+        <option value="43&quot">43&quot;</option>
+        <option value="43.5&quot">43.5&quot;</option>
+        <option value="44&quot">44&quot;</option>
+        <option value="44.5&quot">44.5&quot;</option>
+        <option value="45&quot">45&quot;</option>
+        <option value="45.5&quot">45.5&quot;</option>
+        <option value="46&quot">46&quot;</option>
+        <option value="46.5&quot">46.5&quot;</option>
+        <option value="47&quot">47&quot;</option>
+        <option value="47.5&quot">47.5&quot;</option>
+        <option value="48&quot">48&quot;</option>
+        <option value="48.5&quot">48.5&quot;</option>
+        <option value="49&quot">49&quot;</option>
+        <option value="49.5&quot">49.5&quot;</option>
+        <option value="50&quot">50&quot;</option>
+      </select>
+    </div>
+    <div >Dress:</div>
+    <div >
+      <select name="dress">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="0">0</option>
+        <option value="2">2</option>
+        <option value="4">4</option>
+        <option value="6">6</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="12">12</option>
+        <option value="14">14</option>
+        <option value="16">16</option>
+        <option value="18">18</option>
+      </select>
+    </div>
+    <div >Shoes:</div>
+    <div >
+      <select name="shoes">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="4">4</option>
+        <option value="4.5">4.5</option>
+        <option value="5">5</option>
+        <option value="5.5">5.5</option>
+        <option value="6">6</option>
+        <option value="6.5">6.5</option>
+        <option value="7">7</option>
+        <option value="7.5">7.5</option>
+        <option value="8">8</option>
+        <option value="8.5">8.5</option>
+        <option value="9">9</option>
+        <option value="9.5">9.5</option>
+        <option value="10">10</option>
+        <option value="10.5">10.5</option>
+        <option value="11">11</option>
+        <option value="11.5">11.5</option>
+        <option value="12">12</option>
+        <option value="12.5">12.5</option>
+        <option value="13">13</option>
+        <option value="13.5">13.5</option>
+        <option value="14">14</option>
+        <option value="14.5">14.5</option>
+      </select>
+    </div>
+    <div >Hair:</div>
+    <div >
+      <select name="hair">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="Blonde">Blonde</option>
+        <option value="Brown">Brown</option>
+        <option value="Light Brown">Light Brown</option>
+        <option value="Dark Brown">Dark Brown</option>
+        <option value="Black">Black</option>
+        <option value="Red">Red</option>
+        <option value="Auburn">Auburn</option>
+        <option value="Platinum">Platinum</option>
+        <option value="Salt &amp; Pepper">Salt &amp; Pepper</option>
+        <option value="Gray">Gray</option>
+        <option value="Bald">Bald</option>
+        <option value="White">White</option>
+        <option value="Dark Blonde">Dark Blonde</option>
+        <option value="Light Blonde">Light Blonde</option>
+        <option value="Strawberry Blonde">Strawberry Blonde</option>
+        <option value="Shaved">Shaved</option>
+      </select>
+    </div>
+    <div >Eyes:</div>
+    <div >
+      <select name="eyes">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="Blue">Blue</option>
+        <option value="Green">Green</option>
+        <option value="Blue-Green">Blue-Green</option>
+        <option value="Gray">Gray</option>
+        <option value="Blue-Gray">Blue-Gray</option>
+        <option value="Black">Black</option>
+        <option value="Brown">Brown</option>
+        <option value="Hazel">Hazel</option>
+        <option value="Dark Brown">Dark Brown</option>
+        <option value="Gray-Green">Gray-Green</option>
+      </select>
+    </div>
+    <div >Suit:</div>
+    <div >
+      <select name="suit">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="37&quot;">37&quot;</option>
+        <option value="38&quot;">38&quot;</option>
+        <option value="39&quot;">39&quot;</option>
+        <option value="40&quot;">40&quot;</option>
+        <option value="41&quot;">41&quot;</option>
+        <option value="42&quot;">42&quot;</option>
+        <option value="43&quot;">43&quot;</option>
+        <option value="44&quot;">44&quot;</option>
+        <option value="45&quot;">45&quot;</option>
+        <option value="46&quot;">46&quot;</option>
+        <option value="47&quot;">47&quot;</option>
+        <option value="48&quot;">48&quot;</option>
+        <option value="49&quot;">49&quot;</option>
+        <option value="50&quot;">50&quot;</option>
+      </select>
+    </div>
+    <div >Suit Length:</div>
+    <div >
+      <select name="suitLength">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="S">S</option>
+        <option value="R">R</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
+    </div>
+    <div >Shirt:</div>
+    <div >
+      <select name="shirt">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="14&quot;">14&quot;</option>
+        <option value="14.5&quot;">14.5&quot;</option>
+        <option value="15&quot;">15&quot;</option>
+        <option value="15.5&quot;">15.5&quot;</option>
+        <option value="16&quot;">16&quot;</option>
+        <option value="16.5&quot;">16.5&quot;</option>
+        <option value="17&quot;">17&quot;</option>
+        <option value="17.5&quot;">17.5&quot;</option>
+        <option value="18&quot;">18&quot;</option>
+      </select>
+    </div>
+    <div >Shirt Sleeve:</div>
+    <div>
+      <select name="shirtSleeve">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="30&quot;">30&quot;</option>
+        <option value="31&quot;">31&quot;</option>
+        <option value="32&quot;">32&quot;</option>
+        <option value="33&quot;">33&quot;</option>
+        <option value="34&quot;">34&quot;</option>
+        <option value="35&quot;">35&quot;</option>
+        <option value="36&quot;">36&quot;</option>
+        <option value="37&quot;">37&quot;</option>
+        <option value="38&quot;">38&quot;</option>
+        <option value="39&quot;">39&quot;</option>
+        <option value="40&quot;">40&quot;</option>
+        <option value="41&quot;">41&quot;</option>
+      </select>
+    </div>
+    <div >Inseam:</div>
+    <div >
+      <select name="inseam">
+        <option selected="selected" value="">---- Select ----</option>
+        <option value="27&quot;">27&quot;</option>
+        <option value="28&quot;">28&quot;</option>
+        <option value="29&quot;">29&quot;</option>
+        <option value="30&quot;">30&quot;</option>
+        <option value="31&quot;">31&quot;</option>
+        <option value="32&quot;">32&quot;</option>
+        <option value="33&quot;">33&quot;</option>
+        <option value="34&quot;">34&quot;</option>
+        <option value="35&quot;">35&quot;</option>
+        <option value="36&quot;">36&quot;</option>
+        <option value="37&quot;">37&quot;</option>
+        <option value="38&quot;">38&quot;</option>
+        <option value="39&quot;">39&quot;</option>
+        <option value="40&quot;">40&quot;</option>
+        <option value="41&quot;">41&quot;</option>
+        <option value="42&quot;">42&quot;</option>
+        <option value="43&quot;">43&quot;</option>
+        <option value="44&quot;">44&quot;</option>
+        <option value="45&quot;">45&quot;</option>
+        <option value="46&quot;">46&quot;</option>
+        <option value="47&quot;">47&quot;</option>
+        <option value="48&quot;">48&quot;</option>
+        <option value="49&quot;">49&quot;</option>
+        <option value="50&quot;">50&quot;</option>
+      </select>
+      <br />
+      <br />
+    </div>
+  </div>
+  </div>
+    
+	</div>
+</div>
+</div>
+
+<div id="leftcolumn">
+<div class="innertube">
+	<div id="form1"  >
+<!--<div class="num"><h1>1.</h1></div>-->
+    				<div >First Name:</div>
+    				<div>
+      					<input name="FirstName" type="text" maxlength="30" size="30" id="FirstName" />
+      					<span id="FirstName" style="color:Red;display:none;">Please enter your name.</span></div>
+    					<div >Last Name:</div>
+   			 			<div ><input name="LastName" type="text" maxlength="30" size="30" id="LastName" /></div>
+    					<div >Street Address:</div>
+    					<div ><input name="Address1" type="text" maxlength="50" size="30" id="Address1" />
+      							<span id="Address1" style="color:Red;display:none;">Please list your street address.</span> <br />
+      							<input name="Address2" type="text" maxlength="50" size="30" id="Address2" />
+    					</div>
+    					<div >City:</div>
+    					<div ><input name="City" type="text" maxlength="50" size="30" id="City" />
+      						<span id="City" style="color:Red;display:none;">Pleas enter a city name.</span>
+                        </div>
+    					<div >State:</div>
+    					<div >Zip Code:</div>
+    					<div ><input name="Zip" type="text" maxlength="50" size="30" id="Zip" /></div>
+    					<div >Country:</div>
+    					<div >
+      						<select name="Countries" id="Countries">
+        						<option value="US" selected="selected">United States</option>
+        						<option value="CA">Canada</option>
+        						<option value="AF">Afghanistan</option>
+        						<option value="AL">Albania</option>
+        						<option value="DZ">Algeria</option>
+                                <option value="AD">Andorra</option>
+                                <option value="AO">Angola</option>
+                                <option value="AI">Argentina</option>
+                                <option value="AQ">Antartica</option>
+                                <option value="AG">Antigua and Barbuda</option>
+                                <option value="AR">Argentina</option>
+                                <option value="AM">Armenia</option>
+                                <option value="AW">Aruba</option>
+                                <option value="AU">Australia</option>
+                                <option value="AT">Austria</option>
+                                <option value="AZ">Azerbaijan</option>
+                                <option value="BS">Bahamas</option>
+                                <option value="BH">Bharain</option>
+                                <option value="BD">Bangladesh</option>
+                                <option value="BB">Barbados</option>
+                                <option value="BY">Belarus</option>
+                                <option value="BE">Belgium</option>
+                                <option value="BZ">Belize</option>
+                                <option value="BJ">Benin</option>
+                                <option value="BM">Bermuda</option>
+                                <option value="BT">Bhutan</option>
+                                <option value="BO">Bolivia</option>
+                                <option value="BA">Bosnia and Herzegowina</option>
+                                <option value="BW">Botswana</option>
+                                <option value="BV">Bouvet Island</option>
+                                <option value="BR">Brazil</option>
+                                <option value="IO">British Indian Ocean Territory</option>
+                                <option value="VG">British Virgin Islands</option>
+                                <option value="BN">Brunei Darussalam</option>
+                                <option value="BG">Bulgaria</option>
+                                <option value="BF">Burkina Faso</option>
+                                <option value="BI">Burundi</option>
+                                <option value="KH">Cambodia</option>
+                                <option value="CM">Cameroon</option>
+                                <option value="CA">Canada</option>
+                                <option value="CV">Cape Verde</option>
+                                <option value="KY">Cayman Islands</option>
+                                <option value="CF">Central African Republic</option>
+                                <option value="TD">Chad</option>
+                                <option value="CL">Chile</option>
+                                <option value="CX">Christmas Island</option>
+                                <option value="CC">Cocos (Keeling) Islands</option>
+                                <option value="CO">Colombia</option>
+                                <option value="KM">Comoros</option>
+                                <option value="CG">Congo</option>
+                                <option value="CK">Cook Islands</option>
+                                <option value="CR">Costa Rica</option>
+                                <option value="CI">Cote d&#39;Ivoire</option>
+                                <option value="HR">Croatia</option>
+                                <option value="CU">Cuba</option>
+                                <option value="CY">Cyprus</option>
+                                <option value="CZ">Czech Republic</option>
+                                <option value="DK">Denmark</option>
+                                <option value="DJ">Djibouti</option>
+                                <option value="DM">Dominica</option>
+                                <option value="DO">Dominican Republic</option>
+                                <option value="TP">East Timor</option>
+                                <option value="EC">Ecuador</option>
+                                <option value="EG">Egypt</option>
+                                <option value="SV">El Salvador</option>
+                                <option value="GQ">Equatorial Guinea</option>
+                                <option value="ER">Eritrea</option>
+                                <option value="EE">Estonia</option>
+                                <option value="ET">Ethiopia</option>
+                                <option value="FK">Falkland Islands</option>
+                                <option value="FO">Faroe Islands</option>
+                                <option value="FJ">Fiji</option>
+                                <option value="FI">Finland</option>
+                                <option value="FR">France</option>
+                                <option value="GF">French Guiana</option>
+                                <option value="PF">French Polynesia</option>
+                                <option value="GA">Gabon</option>
+                                <option value="GM">Gambia</option>
+                                <option value="GE">Georgia</option>
+                                <option value="DE">Germany</option>
+                                <option value="GI">Gibraltar</option>
+                                <option value="GR">Greece</option>
+                                <option value="GL">Greenland</option>
+                                <option value="GD">Grenada</option>
+                                <option value="VC">Grenadines</option>
+                                <option value="GP">Guadelope</option>
+                                <option value="GU">Guam</option>
+                                <option value="GT">Guatemala</option>
+                                <option value="GN">Guinea</option>
+                                <option value="GW">Guinea-Bissau</option>
+                                <option value="GY">Guyana</option>
+                                <option value="HT">Haiti</option>
+                                <option value="HM">Heard and McDonald Islands</option>
+                                <option value="HN">Honduras</option>
+                                <option value="HK">Hong Kong</option>
+                                <option value="HU">Hungary</option>
+                                <option value="IS">Iceland</option>
+                                <option value="IN">India</option>
+                                <option value="ID">Indonesia</option>
+                                <option value="IR">Iran</option>
+                                <option value="IQ">Iraq</option>
+                                <option value="IE">Ireland</option>
+                                <option value="IL">Israel</option>
+                                <option value="IT">Italy</option>
+                                <option value="JM">Jamaica</option>
+                                <option value="JP">Japan</option>
+                                <option value="JO">Jordan</option>
+                                <option value="KZ">Kazakhstan</option>
+                                <option value="KE">Kenya</option>
+                                <option value="KI">Kiribati</option>
+                                <option value="KP">Korea, People&#39;s Republic</option>
+                                <option value="KR">Korea, ROK</option>
+                                <option value="KW">Kuwait</option>
+                                <option value="KG">Kyrgyzstan</option>
+                                <option value="LA">Lao Democratic Republic</option>
+                                <option value="LV">Latvia</option>
+                                <option value="LB">Lebanon</option>
+                                <option value="LS">Lesotho</option>
+                                <option value="LR">Liberia</option>
+                                <option value="LY">Libyan Arab Jamahiriyah</option>
+                                <option value="LI">Liechtenstein</option>
+                                <option value="LT">Lithuania</option>
+                                <option value="LU">Luxembourg</option>
+                                <option value="MO">Macau</option>
+                                <option value="MK">Macedonia</option>
+                                <option value="MG">Madagaskar</option>
+                                <option value="MW">Malawi</option>
+                                <option value="MY">Malaysia</option>
+                                <option value="MV">Maldives</option>
+                                <option value="ML">Mali</option>
+                                <option value="MT">Malta</option>
+                                <option value="MH">Marshall Islands</option>
+                                <option value="MQ">Martinique</option>
+                                <option value="MR">Mauritania</option>
+                                <option value="MU">Mauritius</option>
+                                <option value="YT">Mayotte</option>
+                                <option value="MX">Mexico</option>
+                                <option value="FM">Micronesia</option>
+                                <option value="MD">Moldova, Rep. of</option>
+                                <option value="MC">Monaco</option>
+                                <option value="MN">Mongolia</option>
+                                <option value="MS">Montserrat</option>
+                                <option value="MA">Morocco</option>
+                                <option value="MZ">Mozambique</option>
+                                <option value="MM">Myanmar</option>
+                                <option value="NA">Namibia</option>
+                                <option value="NR">Nauru</option>
+                                <option value="NP">Nepal</option>
+                                <option value="NL">Netherlands</option>
+                                <option value="AN">Netherlands Antilles</option>
+                                <option value="NC">New Caledonia</option>
+                                <option value="NZ">New Zealand</option>
+                                <option value="NI">Nicaragua</option>
+                                <option value="NE">Niger</option>
+                                <option value="NG">Nigeria</option>
+                                <option value="NU">Niue</option>
+                                <option value="NF">Norfolk Island</option>
+                                <option value="MP">Northern Mariana Islands</option>
+                                <option value="NO">Norway</option>
+                                <option value="OM">Oman</option>
+                                <option value="PK">Pakistan</option>
+                                <option value="PW">Palau</option>
+                                <option value="PA">Rep. of Panama</option>
+                                <option value="PG">Papua New Guinea</option>
+                                <option value="PY">Paraguay</option>
+                                <option value="CN">People&#39;s Rep. China</option>
+                                <option value="PE">Peru</option>
+                                <option value="PH">Philippines</option>
+                                <option value="PN">Pitcairn</option>
+                                <option value="PL">Poland</option>
+                                <option value="PT">Portugal</option>
+                                <option value="QA">Qatar</option>
+                                <option value="RE">Reunion</option>
+                                <option value="RO">Romania</option>
+                                <option value="RU">Russia</option>
+                                <option value="RW">Rwanda</option>
+                                <option value="KN">Saint Kitts and Nevis</option>
+                                <option value="LC">Saint Lucia</option>
+                                <option value="WS">Samoa</option>
+                                <option value="SM">Rep. San Marino</option>
+                                <option value="ST">Sao Tome and Principe</option>
+                                <option value="SA">Saudi Arabia</option>
+                                <option value="SN">Senegal</option>
+                                <option value="SC">Seychelles</option>
+                                <option value="SL">Sierra Leone</option>
+                                <option value="SG">Singapore</option>
+                                <option value="SK">Slovakia</option>
+                                <option value="SI">Slovenia</option>
+                                <option value="SB">Solomon Islands</option>
+                                <option value="SO">Somalia</option>
+                                <option value="ZA">South Africa</option>
+                                <option value="ES">Spain</option>
+                                <option value="LK">Rep. of Sri Lanka</option>
+                                <option value="SH">St. Helena</option>
+                                <option value="PM">St. Pierre and Miquelon</option>
+                                <option value="SD">Sudan</option>
+                                <option value="SR">Suriname</option>
+                                <option value="SJ">Svalbard and Jan Mayen</option>
+                                <option value="SZ">Swaziland</option>
+                                <option value="SE">Sweden</option>
+                                <option value="CH">Switzerland</option>
+                                <option value="SY">Syrian Arab Republic</option>
+                                <option value="TW">Taiwan, ROC</option>
+                                <option value="TJ">Tajikstan</option>
+                                <option value="TZ">Tanzania</option>
+                                <option value="TH">Thailand</option>
+                                <option value="TG">Togo</option>
+                                <option value="TK">Tokelau</option>
+                                <option value="TO">Tonga</option>
+                                <option value="TT">Trinidad West Indies</option>
+                                <option value="TN">Tunisia</option>
+                                <option value="TR">Turkey</option>
+                                <option value="TM">Turkmenistan</option>
+                                <option value="TC">Turks and Caicos Islands</option>
+                                <option value="TV">Tuvalu</option>
+                                <option value="UG">Uganda</option>
+                                <option value="UA">Ukraine</option>
+                                <option value="AE">UAE</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="UY">Uruguay</option>
+                                <option value="VI">US Virgin Islands</option>
+                                <option value="UZ">Uzbekistan</option>
+                                <option value="VU">Vanuatu</option>
+                                <option value="VA">Vatican City State</option>
+                                <option value="VE">Venezuela</option>
+                                <option value="VN">Vietnam</option>
+                                <option value="WF">Wallis and Futuna Islands</option>
+                                <option value="EH">Western Sahara</option>
+                                <option value="YE">Yemen</option>
+                                <option value="YU">Yugoslavia</option>
+                                <option value="ZR">Zaire</option>
+                                <option value="ZM">Zambia</option>
+                                <option value="ZW">Zimbabwe</option>
+      						</select>
+    					</div>
+    					<div >E-mail Address:</div>
+    					<div ><input name="PrimaryEmail" type="text" maxlength="100" size="30" id="PrimaryEmail" />
+      					<span id="PrimaryEmail" style="color:Red;display:none;">Please enter your email address.</span> <span id="Email" style="color:Red;display:none;">Please enter valid email address.</span></div>
+    					<div >Phone Number:</div>
+                            <div ><input name="Phone" type="text" maxlength="50" size="30" id="Phone" />
+      						<span id="Phone" style="color:Red;display:none;">Please enter a phone number.</span><br />
+      						<br />
+                            </div>
+		  </div>
+
+</div>
+
+</div>
+
+<div id="rightcolumn">
+<div class="innertube">
+	<div id="form3" >
+    <!--<div class="num"><h1>3.</h1></div>-->
+    <div >
+      <p>Please upload up to 5 photos. One should be a clear head shot and one a clear body shot. Your head shot should clearly show your entire face. Your body shot should display your build and body type. We suggest that you include a swimsuit shot.</p>
+    </div>
+    <div >Image 1:</div>
+    <div>
+      <input type="file" name="uploadFile1" id="uploadFile1" />
+      <span id="UploadFile1" style="color:Red;visibility:hidden;">Invalid image file.</span></div>
+    <div >Image 2:</div>
+    <div >
+      <input type="file" name="uploadFile2" id="uploadFile2" />
+      <span id="UploadFile2" style="color:Red;visibility:hidden;">Invalid image file.</span></div>
+    <div >Image 3:</div>
+    <div >
+      <input type="file" name="uploadFile3" id="uploadFile3" />
+      <span id="UploadFile3" style="color:Red;visibility:hidden;">Invalid image file.</span></div>
+    <div >Image 4:</div>
+    <div >
+      <input type="file" name="uploadFile4" id="uploadFile4" />
+      <span id="UploadFile4" style="color:Red;visibility:hidden;">Invalid image file.</span></div>
+    <div >Image 5:</div>
+    <div >
+      <input type="file" name="uploadFile5" id="uploadFile5" />
+      <span id="UploadFile5" style="color:Red;visibility:hidden;">Invalid image file.</span></div>
+    <div id="footer">
+      <div class="num"><input type="submit" name="btnSubmit" value="Submit"  /></div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+</form>
+
+</div>
+</body>
+</html>

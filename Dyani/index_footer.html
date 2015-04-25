@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DyaniEntertainment :: YOUR TICKET 2 HOLLYWOOD</title>
+
+ 
+<style>
+body{
+	background:url(images/SteelBg7.jpg) no-repeat center top fixed;
+	background-repeat:no-repeat;
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+	background-size: 100%;
+	background-color:#fff;
+	color:white;
+}
+#bg{
+    position:absolute; z-index:-1;	
+    margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+}
+
+#content{
+	position:static;
+	/*padding-top:60px;*/
+	
+}
+#footer {
+			position: fixed;
+			bottom: 0; 
+			left: 0;
+			z-index: 9999;
+			background: #000;
+			width: 100%;
+			height:5%;
+			margin: 0;
+			padding: 5px;
+		}
+		
+		/*--IE6 Hack - Fixed Positioning to the Top--*/
+		*html #header { 
+			position: absolute;
+			top: expression(eval(document.compatMode &&document.compatMode=='CSS1Compat') ?documentElement.scrollTop : document.body.scrollTop);
+		}
+		
+		/*--IE6 Hack - Fixed Positioning to the Bottom--*/
+		*html #footer { 
+			position: absolute;
+			top: expression(eval(document.compatMode &&document.compatMode=='CSS1Compat') ?documentElement.scrollTop+(documentElement.clientHeight-this.clientHeight) : document.body.scrollTop +(document.body.clientHeight-this.clientHeight));
+		}
+		
+		#academy{
+			
+			float:left;
+			border:#39bce3 2px solid;
+			width:49%;
+			height:90%;
+			text-align:center;
+			text-shadow: #999;
+			
+			
+			 
+			}
+		
+		#become_model{
+			margin-left:50%;
+			border:#39bce3 2px solid;
+			height:90%;
+			width:47%;
+			text-align:center;
+			text-shadow:#999
+			}
+			
+#footer_button {
+		/*width: 980px;
+		margin: 0 auto;*/
+		text-align: center;
+		font-size: 20px;
+		color: white;
+		cursor: pointer;
+	}
+	#footer_higher {
+		width:100%;
+		background: #111111;
+	}
+	#footer_higher #footer_content {
+		width: 980px;
+		margin: 0 auto;
+		display: none;
+		position: fixed;
+			bottom: 0; 
+			left: 0;
+	}
+	#footer_higher #footer_content .footbox {
+		background: #323232;
+		padding: 20px;
+		float: left;
+		width: 265px;
+		margin: 10px;
+	}
+	#footer_lower {
+		width: 100%;
+	}
+	#footer_lower {
+		background: #1A1A1A;
+		width: 100%;
+		font-size: 10px;
+		color: #BCBCBC;
+		padding: 15px 0px;
+	}
+	#footer_lower #footer_info {
+		width: 980px;
+		margin: 0px auto;
+	}
+	#footer_lower #copyright {
+		width: 610px;
+		float: left;
+		text-align:left;
+	}
+	#footer_lower #attr {
+		width: 325px;
+		float: right;
+		text-align:right;
+	}
+	#footer_lower #copyright a, #footer_lower #attr a,
+	#footer_lower #copyright a:link, #footer_lower #attr a:link {
+		color: #9A9A9A;
+		text-decoration: none;
+	}
+	#footer_lower #copyright a:hover, #footer_lower #attr a:hover {
+		color: #BCBCBC;
+		text-decoration: none;
+	}
+	.clear {
+		clear:both;
+	}			
+			
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script language="javascript">
+
+jQuery(function($) {
+	var slide = false;
+	var height = $('#footer_content').height();
+	$('#footer_button').click(function() {
+		var docHeight = $(document).height();
+		var windowHeight = $(window).height();
+		var scrollPos = docHeight - windowHeight + height;
+		$('#footer_content').animate({ height: "toggle"}, 1000);
+		if(slide == false) {
+			if($.browser.opera) { //Fix opera double scroll bug by targeting only HTML.
+				$('html').animate({scrollTop: scrollPos+'px'}, 1000);
+			} else {
+				$('html, body').animate({scrollTop: scrollPos+'px'}, 1000);
+			}
+                               slide = true;
+		} else {
+                               slide = false;
+                       }
+	});
+});
+
+</script>
+
+
+</head>
+ 
+<body>
+
+
+
+
+<div id="container">
+
+	<div id="bg">
+
+		<div id="content" align="center" style="margin-left:521px;">
+			<div style="float:left">
+        		<font color="white" size="+3"><b>Click Flyer to RSVP</b> </font>
+            
+        		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="dyanientertainment@gmail.com">
+                    <input type="hidden" name="item_name" value="YOUR TICKET 2 HOLLYWOOD">
+                    <input type="hidden" name="item_number" value="">
+                    <input type="hidden" name="amount" value="25">
+                    <input type="hidden" name="no_shipping" value="1">
+                    <input type="hidden" name="return" value="http://www.dyanientertainment.com/">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="lc" value="US">
+       
+                    <input type="hidden" name="bn" value="PP-BuyNowBF">
+                    <input type="image" src="flyer.jpg" border="0" name="submit" alt="Make your payments with PayPal. It is free, secure, effective.">
+					<h2><font color="white">Click Flyer to RSVP</font></h2>
+        		</form>
+                
+        		<div style="float:left; ">
+              		<div>Please Select Your Desired Quantity</div>
+    					<select  name="quantity">
+     						<option value="1" selected="selected">1</option>
+    						<option value="2">2</option>
+     						<option value="2">3</option>
+      						<option value="4">4</option>
+                           	<option value="5">5</option>
+                           	<option value="6">6</option>
+                           	<option value="7">7</option>
+                           	<option value="8">8</option>
+                           	<option value="9">9</option>
+                           	<option value="10">10</option>
+       					</select>
+    				</input>
+    				<input type="submit" name="submit"  value="Click to RSVP"  />
+            
+            
+         		 </div>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+			</div>
+		</div>
+
+<!--<div id="footer">
+		
+        <div id="academy">
+       DYANI Models Academy
+        </div>
+        <div id="become_model">
+        Become A Model - click to submit
+        </div>
+	</div>-->
+    
+   
+  
+	</div>
+ </div>   
+    
+   <div id="footer_button">
+	Click Me To Open Footer...
+</div>
+<div id="footer_higher">
+	<div id="footer_content">
+		<div class="footbox">
+			Footer box
+		</div>
+		<div class="footbox">
+			Footer box
+		</div>
+
+		<div class="footbox">
+			Footer box
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+ 
+    
+    
+
+  
+
+
+
+</body>
+</html>

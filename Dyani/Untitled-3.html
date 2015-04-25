@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+<title>jQuery Sliding Footer Example</title>
+<style type="text/css">
+	body {
+		background: #222222;
+		margin:0;
+		padding:0;
+	}
+	#container {
+		width:980px;
+		margin: 0 auto;
+		
+	}
+	#header {
+		color: #FEFEFE;
+		text-align: center;
+	}
+	#content {
+		background: #FEFEFE;
+		padding: 30px;
+		height: 1000px;
+	}
+	#footer_button {
+		width: 980px;
+		margin: 0 auto;
+		text-align: center;
+		font-size: 20px;
+		color: white;
+		cursor: pointer;
+	}
+	#footer_higher {
+		width:100%;
+		background: #111111;
+	}
+	#footer_higher #footer_content {
+		width: 980px;
+		margin: 0 auto;
+		display: none;
+	}
+	#footer_higher #footer_content .footbox {
+		background: #323232;
+		padding: 20px;
+		float: left;
+		width: 265px;
+		margin: 10px;
+	}
+	#footer_lower {
+		width: 100%;
+	}
+	#footer_lower {
+		background: #1A1A1A;
+		width: 100%;
+		font-size: 10px;
+		color: #BCBCBC;
+		padding: 15px 0px;
+	}
+	#footer_lower #footer_info {
+		width: 980px;
+		margin: 0px auto;
+	}
+	#footer_lower #copyright {
+		width: 610px;
+		float: left;
+		text-align:left;
+	}
+	#footer_lower #attr {
+		width: 325px;
+		float: right;
+		text-align:right;
+	}
+	#footer_lower #copyright a, #footer_lower #attr a,
+	#footer_lower #copyright a:link, #footer_lower #attr a:link {
+		color: #9A9A9A;
+		text-decoration: none;
+	}
+	#footer_lower #copyright a:hover, #footer_lower #attr a:hover {
+		color: #BCBCBC;
+		text-decoration: none;
+	}
+	.clear {
+		clear:both;
+	}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+	jQuery(function($) {
+		var slide = false;
+		var height = $('#footer_content').height();
+		$('#footer_button').click(function() {
+			var docHeight = $(document).height();
+			var windowHeight = $(window).height();
+			var scrollPos = docHeight - windowHeight + height;
+			$('#footer_content').animate({ height: "toggle"}, 1000);
+			if(slide == false) {
+				if($.browser.opera) {
+					$('html').animate({scrollTop: scrollPos+'px'}, 1000);
+				} else {
+					$('html, body').animate({scrollTop: scrollPos+'px'}, 1000);
+				}
+				slide = true;
+			} else {
+				slide = false;
+			}
+		});
+	});
+</script>
+</head>
+<body>
+<div id="container">
+
+	<div id="header">
+		<h1>Sliding Footer Example!</h1>
+	</div>
+	<div id="content">
+		<p>This is an example of the sliding footer. There is one limitation with this that I forgot to mention in the tutorial. If the page is not big enough to fill the entire browser window it revert to looking as if the footer is sliding downward. This is because the browser view cannot follow the footer to complete the illusion. Unfortunately I haven't yet figured out how to solve this without removing the footer from document flow.</p>
+		<p>Like I said I am by no means a jQuery expert. If you have any ideas on how to improve this, let me know via the comments on the original post. Because this page obviously doesn't have enough content I have used height to bloat the side of the page.</p>
+	</div>
+
+</div>
+<div id="footer_button">
+	Click Me To Open Footer...
+</div>
+<div id="footer_higher">
+	<div id="footer_content">
+		<div class="footbox">
+			Footer box
+		</div>
+		<div class="footbox">
+			Footer box
+		</div>
+
+		<div class="footbox">
+			Footer box
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<div id="footer_lower">
+	<div id="footer_info">
+		<div id="copyright">
+			&copy; Return True All Rights Reserved.
+		</div>
+
+		<div id="attr">
+			By <a href="http:/return-true.com/themes/">Return True</a>.
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+</body>
+</html>
