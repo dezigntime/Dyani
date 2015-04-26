@@ -1,0 +1,77 @@
+/* -----------------------------------------
+        FORD MODELS 
+        APPLICATION FORM
+        (C) 2007 FORD MODELS
+-------------------------------------------- */
+
+body {background:#fffffff; margin:0; padding:0; color:#999999; font-family: Helvetica, Arial,sans-serif; font-size:100%;}
+
+.floatL {float:left;}
+/* -------------------------
+      HEADER
+---------------------------- */
+
+#headerWrapper {position:relative; height:177px; width:100%; background:url(../_design/images/header_bg.jpg) repeat-x;}
+    #headerTop {position:relative; width:800px; height:111px; margin:auto;}
+    #headerBottom {position:relative; width:800px; height:65px; margin:auto;}
+    a.application_link {margin:30px 0 0 0; color:#a2a2a2; text-decoration:none; float:left; font-size:1.2em; font-weight:normal;}
+    a:hover.application_link {text-decoration:underline;}
+    
+a:link { 
+color: #ffffff;
+    }
+a:visited { 
+color: #ffffff;
+    }
+a:hover { 
+    color: #ffffff;
+    //background-color: #333333;
+    text-decoration: none;
+    }
+/* -------------------------
+      BODY
+---------------------------- */
+.tinput {
+width:200px;
+ border:0px none;
+margin: 1px;
+}
+#bodyWrapper {position:relative; width:100%; background:url(../images/bkgd1.jpg) repeat;}
+    #body {position:relative; width:800px; margin:auto; padding:20px 0;}
+        h1.step {font-size:1.2em; font-weight:normal; margin:0; padding:0; border-bottom:#ffffff dashed 1px; height:30px; color:#ffffff;} 
+        #step1, #step2, #step3 {position:relative;}
+        #step1 { }
+        #step2 { }
+        #step3 {height:450px;}
+            .form {position:relative; margin:15px 50px;}
+              ul.fields {margin:0; padding:0;}
+              ul.fields li {list-style:none; height:35px; font-size:.8em;}
+                  ul.fields li.height {height:26px;}
+              ul.fields li label {float:left; width:130px; text-align:right; margin:0 10px 0 0; padding:6px 0 0 0; color:#999999;}
+              ul.fields li label span.sub {font-size:.85em;}
+              ul.fields li input, ul.fields li select, ul.fields li input.radiobtn {height:20px; border:none; background:#ffffff;}
+                  ul.fields li input {width:200px;}
+                  ul.fields li select {width:135px;}
+                  ul.fields li input.radiobtn {width:auto; height:auto;}
+            p {font-size:0.75em; /*16 x .75 = 12px font size*/}
+                p.directions {margin:30px 0 10px 0;}
+            textarea {height:80px; width:100%; border:none; background:#ffffff; margin:0 0 40px 0;}
+            ul.photo_upload_directions {float:left; width:350px;  color:#999999; padding:0; margin:12px 0 12px 0; font-size:.8em;}
+            ul.photo_upload_directions li {margin:3px 0 0 30px; list-style:circle;}
+            ul.photo_upload_directions li.no_list_style {margin:6px 0; padding:0; list-style:none;}
+            ul.photo_upload { width:640px;  list-style:none; margin:12px 0 12px 0; padding:0;}
+            ul.photo_upload li {margin-left: 5px; margin-bottom: 0; margin-right: 5px; margin-top: 0; float:left; display:inline; height:186px; width: 144px;}
+
+            ul.polices {width:800px; font-size:.8em; padding:0; clear:both;}
+            ul.polices li {margin:20px 0 0 0; list-style:none; width:100%;}
+            ul.polices li input {margin:4px 4px 0 0; padding:0;}
+            ul.community_details {}
+            ul.community_details li {margin:5px 0 0 0; list-style:circle;}
+            ul.buttons {width:800px; padding:0 0 0 130px; margin:50px 0 0 0;}
+            ul.buttons li {display:inline; list-style:none;}
+/* -------------------------
+      FOOTER
+---------------------------- */
+
+#footer {clear:both; position:relative; width:100%; padding:5px 0 0 0; height:55px;} 
+#footer p { color:#999999; text-align:center; font-size:.7em;}
