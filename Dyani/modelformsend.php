@@ -2,7 +2,7 @@
 
 
 // email fields: to, from, subject, and so on
-$to = "dyanientertainment@gmail.com";
+$to = "dyanientertainment@gmail.com,jjackson@dynamicwebdezign.com";
 $from = $_POST["email"];
 $subject ="DYANI Entertainment Model Submission"; 
 
